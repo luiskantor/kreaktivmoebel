@@ -863,17 +863,19 @@
     <section class="proof">
       <div class="container">
         <div class="proofbar">
-          <div style="text-align:center; width:100%; padding:44px 0 8px 0">
-            <p style="margin:0; font-size:15px; line-height:1.6; color:var(--text); font-family:'Funnel Display', ui-sans-serif, system-ui, sans-serif; text-decoration:underline; text-decoration-style:dotted; text-underline-offset:6px; text-decoration-color:var(--border);">
-              Handwerker sollen sich auf ihr Handwerk konzentrieren. Wir kümmern uns um Material, Zuschnitt und alles drum herum, damit Aufträge sauber laufen und Kunden zufrieden sind.
+          <div style="text-align:center; width:100%; padding:36px 0">
+            <p style="margin:0; font-size:15px; line-height:1.6; color:var(--text); font-family:'Funnel Display', ui-sans-serif, system-ui, sans-serif; text-decoration:underline; text-decoration-style:dotted; text-underline-offset:6px; text-decoration-color:var(--border); max-width:540px; margin:0 auto;">
+              Handwerker sollen sich auf ihr Handwerk konzentrieren.<br/>
+              Wir kümmern uns um Material, Zuschnitt und alles drum herum,<br/>
+              damit Aufträge sauber laufen und Kunden zufrieden sind.
             </p>
           </div>
         </div>
       </div>
-      <div style="position:relative; margin-top:18px;">
-        <div style="position:absolute; left:calc(50% - 50vw); width:100vw; height:1px; background:var(--border);"></div>
-      </div>
     </section>
+    <div style="position:relative;">
+      <div style="position:absolute; left:calc(50% - 50vw); width:100vw; height:1px; background:var(--border);"></div>
+    </div>
 
     <!-- Was Dich erwartet -->
     <section class="features" style="padding-top:60px; padding-bottom:40px;">
@@ -883,74 +885,84 @@
         </div>
 
         <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:0;">
-          
+
           <!-- Item 1 -->
           <div style="display:flex; flex-direction:column; gap:24px; padding:0 32px 40px 0; border-right:1px solid rgba(0,0,0,0.1); border-bottom:1px solid rgba(0,0,0,0.1);">
-            <div style="width:36px; height:36px; border-radius:12px; background:#DDE5F1; display:flex; align-items:center; justify-content:center;">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4357DE" stroke-width="2">
+            <div style="width:36px; height:36px; border-radius:12px; background:rgba(34,139,34,.12); display:flex; align-items:center; justify-content:center;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#228B22" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z"/>
               </svg>
             </div>
             <div>
-              <h4 style="font-size:16px; letter-spacing:-0.02px; margin:0 0 8px 0; font-weight:600; line-height:1.3; min-height:auto; display:flex; align-items:start; font-family:ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;">Selbstständig, aber nicht allein</h4>
-              <p style="margin:0; font-size:14px; line-height:1.6; color:var(--muted);">Bei compexx arbeitest du zwar selbstständig (§84 HGB), bist aber eingebunden in ein starkes Team mit über 100 Kolleg:innen. Du bekommst Support, Coaching und echte Zusammenarbeit.</p>
+              <h4 style="font-size:16px; letter-spacing:-0.02px; margin:0 0 8px 0; font-weight:600; line-height:1.3; min-height:auto; display:flex; align-items:start; font-family:ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;">Du bleibst selbstständig</h4>
+              <p style="margin:0; font-size:14px; line-height:1.6; color:var(--muted);">Du führst dein Geschäft wie bisher, betreust deine Kunden und kalkulierst deine Aufträge selbst. Wir liefern dir im Hintergrund Zuschnitte, Kanten, Zubehör und Anpassungen, damit du dich auf dein Handwerk konzentrieren kannst.</p>
             </div>
           </div>
 
           <!-- Item 2 -->
           <div style="display:flex; flex-direction:column; gap:24px; padding:0 32px 40px 32px; border-right:1px solid rgba(0,0,0,0.1); border-bottom:1px solid rgba(0,0,0,0.1);">
-            <div style="width:36px; height:36px; border-radius:12px; background:#DDE5F1; display:flex; align-items:center; justify-content:center;">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4357DE" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+            <div style="width:36px; height:36px; border-radius:12px; background:rgba(34,139,34,.12); display:flex; align-items:center; justify-content:center;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#228B22" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6A2.25 2.25 0 0 1 6 3.75h2.25A2.25 2.25 0 0 1 10.5 6v2.25a2.25 2.25 0 0 1-2.25 2.25H6a2.25 2.25 0 0 1-2.25-2.25V6ZM3.75 15.75A2.25 2.25 0 0 1 6 13.5h2.25a2.25 2.25 0 0 1 2.25 2.25V18a2.25 2.25 0 0 1-2.25 2.25H6A2.25 2.25 0 0 1 3.75 18v-2.25ZM13.5 6a2.25 2.25 0 0 1 2.25-2.25H18A2.25 2.25 0 0 1 20.25 6v2.25A2.25 2.25 0 0 1 18 10.5h-2.25a2.25 2.25 0 0 1-2.25-2.25V6ZM13.5 15.75a2.25 2.25 0 0 1 2.25-2.25H18a2.25 2.25 0 0 1 2.25 2.25V18A2.25 2.25 0 0 1 18 20.25h-2.25a2.25 2.25 0 0 1-2.25-2.25v-2.25Z"/>
               </svg>
             </div>
             <div>
-              <h4 style="font-size:16px; letter-spacing:-0.02px; margin:0 0 8px 0; font-weight:600; line-height:1.3; min-height:auto; display:flex; align-items:start; font-family:ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;">Freie Zeiteinteilung & Homeoffice</h4>
-              <p style="margin:0; font-size:14px; line-height:1.6; color:var(--muted);">Du bestimmst, wann und wie du arbeitest. Ob im Büro, von zuhause oder unterwegs – volle Flexibilität, ohne jemandem Rechenschaft ablegen zu müssen.</p>
+              <h4 style="font-size:16px; letter-spacing:-0.02px; margin:0 0 8px 0; font-weight:600; line-height:1.3; min-height:auto; display:flex; align-items:start; font-family:ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;">Alles an einem Ort</h4>
+              <p style="margin:0; font-size:14px; line-height:1.6; color:var(--muted);">MDF, Spanplatten, Fronten, Zuschnitt, Kanten, Bohrungen, Beschläge und Zubehör. Kein Wechsel zwischen mehreren Anbietern. Kein Zeitverlust.</p>
             </div>
           </div>
 
           <!-- Item 3 -->
           <div style="display:flex; flex-direction:column; gap:24px; padding:0 0 40px 32px; border-bottom:1px solid rgba(0,0,0,0.1);">
-            <div style="width:36px; height:36px; border-radius:12px; background:#DDE5F1; display:flex; align-items:center; justify-content:center;">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4357DE" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z"/>
+            <div style="width:36px; height:36px; border-radius:12px; background:rgba(34,139,34,.12); display:flex; align-items:center; justify-content:center;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#228B22" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
               </svg>
             </div>
             <div>
-              <h4 style="font-size:16px; letter-spacing:-0.02px; margin:0 0 8px 0; font-weight:600; line-height:1.3; min-height:auto; display:flex; align-items:start; font-family:ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;">Beraten statt Verkaufen</h4>
-              <p style="margin:0; font-size:14px; line-height:1.6; color:var(--muted);">Keine Produktvorgaben, keine starren Quoten. Du berätst Mandanten ehrlich und unabhängig – auf Augenhöhe, mit Fokus auf langfristige Beziehungen.</p>
+              <h4 style="font-size:16px; letter-spacing:-0.02px; margin:0 0 8px 0; font-weight:600; line-height:1.3; min-height:auto; display:flex; align-items:start; font-family:ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;">Preise auf IKEA-Niveau</h4>
+              <p style="margin:0; font-size:14px; line-height:1.6; color:var(--muted);">Unsere Preise bewegen sich auf dem Niveau großer Anbieter wie IKEA. Der Unterschied: Du bekommst deine Maße, deine Farben und deine Lösung: Nicht von der Stange.</p>
             </div>
           </div>
 
           <!-- Item 4 -->
           <div style="display:flex; flex-direction:column; gap:24px; padding:40px 32px 0 0; border-right:1px solid rgba(0,0,0,0.1);">
-            <div style="width:36px; height:36px; border-radius:12px; background:#DDE5F1; display:flex; align-items:center; justify-content:center;">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4357DE" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0 1 15.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 0 1 3 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 0 0-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 0 1-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 0 0 3 15h-.75M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm3 0h.008v.008H18V10.5Zm-12 0h.008v.008H6V10.5Z"/>
+            <div style="width:36px; height:36px; border-radius:12px; background:rgba(34,139,34,.12); display:flex; align-items:center; justify-content:center;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#228B22" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m20.25 7.5-.625 10.632a2.25 2.25 0 0 1-2.247 2.118H6.622a2.25 2.25 0 0 1-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z"/>
               </svg>
             </div>
             <div>
-              <h4 style="font-size:16px; letter-spacing:-0.02px; margin:0 0 8px 0; font-weight:600; line-height:1.3; min-height:auto; display:flex; align-items:start; font-family:ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;">Einkommen mit Perspektive</h4>
-              <p style="margin:0; font-size:14px; line-height:1.6; color:var(--muted);">Dein Verdienst ist nicht gedeckelt. Du gestaltest dein Einkommen über Courtagen & Honorare selbst – mit klaren Aufstiegsmöglichkeiten bis zur eigenen Büroleitung oder Direktion.</p>
+              <h4 style="font-size:16px; letter-spacing:-0.02px; margin:0 0 8px 0; font-weight:600; line-height:1.3; min-height:auto; display:flex; align-items:start; font-family:ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;">Über 2500 Zubehörteile sofort verfügbar</h4>
+              <p style="margin:0; font-size:14px; line-height:1.6; color:var(--muted);">Scharniere, Schrauben, Beschläge und Kleinteile direkt vor Ort. Kein Projektstopp wegen fehlender Einzelteile.</p>
             </div>
           </div>
 
           <!-- Item 5 -->
           <div style="display:flex; flex-direction:column; gap:24px; padding:40px 32px 0 32px; border-right:1px solid rgba(0,0,0,0.1);">
-            <div style="width:36px; height:36px; border-radius:12px; background:#DDE5F1; display:flex; align-items:center; justify-content:center;">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4357DE" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="m3.75 13.5 10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z"/>
+            <div style="width:36px; height:36px; border-radius:12px; background:rgba(34,139,34,.12); display:flex; align-items:center; justify-content:center;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#228B22" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 0 1-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 0 1 4.5 0m0 0v5.714a2.25 2.25 0 0 0 .659 1.591L19 14.5M14.25 3.104c.251.023.501.05.75.082M19 14.5l-1.482 5.928A2.25 2.25 0 0 1 15.335 22H8.665a2.25 2.25 0 0 1-2.183-1.572L5 14.5m14 0H5"/>
               </svg>
             </div>
             <div>
-              <h4 style="font-size:16px; letter-spacing:-0.02px; margin:0 0 8px 0; font-weight:600; line-height:1.3; min-height:auto; display:flex; align-items:start; font-family:ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;">Wertebasiertes Arbeiten mit echtem Teamspirit</h4>
-              <p style="margin:0; font-size:14px; line-height:1.6; color:var(--muted);">Ehrlichkeit, Loyalität, Zusammenhalt – bei compexx zählt, mit wem du arbeitest. Das Team wählt man bewusst. Nur wer menschlich passt, wird Teil der Vision: Qualität vor Quantität, Freiheit vor Hierarchie.</p>
+              <h4 style="font-size:16px; letter-spacing:-0.02px; margin:0 0 8px 0; font-weight:600; line-height:1.3; min-height:auto; display:flex; align-items:start; font-family:ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;">Maßgenaue Zuschnitte & saubere Kanten</h4>
+              <p style="margin:0; font-size:14px; line-height:1.6; color:var(--muted);">Exakt nach deinen Maßen gefertigt. Auch Sondermaße und kurzfristige Anpassungen sind möglich.</p>
             </div>
           </div>
 
-          <!-- Empty placeholder for grid alignment -->
-          <div style="padding:40px 0 0 32px;"></div>
+          <!-- Item 6 -->
+          <div style="display:flex; flex-direction:column; gap:24px; padding:40px 0 0 32px;">
+            <div style="width:36px; height:36px; border-radius:12px; background:rgba(34,139,34,.12); display:flex; align-items:center; justify-content:center;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#228B22" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 21v-7.5a.75.75 0 0 1 .75-.75h3a.75.75 0 0 1 .75.75V21m-4.5 0H2.36m11.14 0H18m0 0h3.64m-1.39 0V9.349M3.75 21V9.349m0 0a3.001 3.001 0 0 0 3.75-.615A2.993 2.993 0 0 0 9.75 9.75c.896 0 1.7-.393 2.25-1.016a2.993 2.993 0 0 0 2.25 1.016c.896 0 1.7-.393 2.25-1.015a3.001 3.001 0 0 0 3.75.614m-16.5 0a3.004 3.004 0 0 1-.621-4.72l1.189-1.19A1.5 1.5 0 0 1 5.378 3h13.243a1.5 1.5 0 0 1 1.06.44l1.19 1.189a3 3 0 0 1-.621 4.72M6.75 18h3.75a.75.75 0 0 0 .75-.75V13.5a.75.75 0 0 0-.75-.75H6.75a.75.75 0 0 0-.75.75v3.75c0 .414.336.75.75.75Z"/>
+              </svg>
+            </div>
+            <div>
+              <h4 style="font-size:16px; letter-spacing:-0.02px; margin:0 0 8px 0; font-weight:600; line-height:1.3; min-height:auto; display:flex; align-items:start; font-family:ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;">Showroom für deine Kunden</h4>
+              <p style="margin:0; font-size:14px; line-height:1.6; color:var(--muted);">Nutze unseren Showroom, um Materialien und Fronten professionell zu präsentieren. Du bleibst Ansprechpartner für deine Kunden und kannst den Showroom als deinen Showroom präsentieren.</p>
+            </div>
+          </div>
 
         </div>
 
@@ -958,40 +970,6 @@
       </div>
     </section>
 
-    <!-- Features -->
-    <section class="features" id="jobs" style="padding-top:80px;">
-      <div class="container">
-        <div class="section-head">
-          <h2 style="font-size:32px; display:inline-flex; align-items:center; gap:18px; margin-bottom:0;">
-            <span style="position:relative; width:10px; height:10px;">
-              <span style="position:absolute; width:10px; height:10px; border-radius:999px; background:var(--accent); opacity:1;"></span>
-              <span style="position:absolute; width:10px; height:10px; border-radius:999px; background:var(--accent); animation:pulse 5s ease-in-out infinite;"></span>
-            </span>
-            Aktuell offene Stellen
-          </h2>
-        </div>
-
-        <div class="job-list">
-          <div class="job-item">
-            <div class="job-left">
-              <div class="job-title">Finanzberater:in</div>
-              <div class="job-meta">(M/W/D)</div>
-            </div>
-            <div class="job-info">
-              <div class="job-info-item">
-                <svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                <span>Sofort verfügbar</span>
-              </div>
-              <div class="job-info-item">
-                <svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                <span>Verschiedene Standorte</span>
-              </div>
-            </div>
-            <button class="job-apply" data-scroll="#final">Termin sichern</button>
-          </div>
-        </div>
-      </div>
-    </section>
 
     <!-- Video Section -->
     <section class="timeline">
