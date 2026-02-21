@@ -50,7 +50,7 @@
     .btn{
       display:inline-flex; align-items:center; justify-content:center; gap:10px;
       padding:12px 16px;
-      border-radius:999px;
+      border-radius:var(--radius);
       border:1px solid var(--border);
       background:rgba(255,255,255,.8);
       color:var(--text);
@@ -166,7 +166,7 @@
       display:flex; align-items:center;
     }
     .logo{
-      width:34px; height:34px; border-radius:12px;
+      width:34px; height:34px; border-radius:var(--radius);
       background:linear-gradient(135deg, rgba(29,78,216,.95), rgba(14,165,233,.95));
       box-shadow: 0 12px 24px rgba(29,78,216,.18);
     }
@@ -246,7 +246,7 @@
     .overlay-card{
       position:absolute; left:16px; right:16px; bottom:16px;
       border:1px solid var(--border);
-      border-radius: 18px;
+      border-radius: var(--radius);
       background:rgba(255,255,255,.92);
       box-shadow: var(--shadow2);
       padding:14px 14px 12px;
@@ -264,7 +264,7 @@
       font-size:13px; color:var(--muted);
     }
     .badge{
-      width:22px; height:22px; border-radius:10px;
+      width:22px; height:22px; border-radius:var(--radius);
       border:1px solid var(--border);
       background:linear-gradient(135deg, rgba(29,78,216,.08), rgba(14,165,233,.08));
       display:flex; align-items:center; justify-content:center;
@@ -396,7 +396,7 @@
     }
     .job-apply{
       padding:10px 24px;
-      border-radius:999px;
+      border-radius:var(--radius);
       border:1px solid rgba(27,94,32,.35);
       background:linear-gradient(135deg, rgba(27,94,32,.95), rgba(46,125,50,.95));
       color:white;
@@ -440,7 +440,7 @@
       padding:18px;
     }
     .card-icon{
-      width:44px; height:44px; border-radius:14px;
+      width:44px; height:44px; border-radius:var(--radius);
       background:linear-gradient(135deg, rgba(29,78,216,.08), rgba(14,165,233,.08));
       border:1px solid var(--border);
       display:flex; align-items:center; justify-content:center;
@@ -463,7 +463,7 @@
       align-items:start;
     }
     .timeline-num{
-      width:38px; height:38px; border-radius:14px;
+      width:38px; height:38px; border-radius:var(--radius);
       border:1px solid var(--border);
       background:linear-gradient(135deg, rgba(29,78,216,.08), rgba(14,165,233,.08));
       display:flex; align-items:center; justify-content:center;
@@ -601,7 +601,7 @@
     }
     input, select, textarea{
       width:100%; border:1px solid var(--border);
-      border-radius:12px; padding:10px 12px;
+      border-radius:var(--radius); padding:10px 12px;
       font:inherit; font-size:14px; color:var(--text);
       background:rgba(255,255,255,.9);
       transition:border-color .15s ease;
@@ -680,7 +680,7 @@
       font-weight:700; font-size:15px;
     }
     .close{
-      cursor:pointer; width:28px; height:28px; border-radius:10px;
+      cursor:pointer; width:28px; height:28px; border-radius:var(--radius);
       display:flex; align-items:center; justify-content:center;
       transition:background .15s ease;
     }
@@ -710,17 +710,32 @@
       10%{opacity:0; transform:scale(1.8)}
       100%{opacity:0; transform:scale(1)}
     }
+    @keyframes dotPulse{
+      0%,100%{transform:scale(1); opacity:0}
+      50%{transform:scale(2.2); opacity:0.35}
+    }
     
+    /* Testimonials dark mode */
+    .testimonials-dark h2{color:#ffffff}
+    .testimonials-dark .testimonial-box{
+      background:rgba(255,255,255,.06);
+    }
+    .testimonials-dark .testimonial-box *{color:#ffffff !important}
+    .testimonials-dark .testimonial-box p{opacity:0.7 !important}
+    .testimonials-dark .carousel-arrow{background:rgba(255,255,255,.08); border-color:rgba(255,255,255,.15)}
+    .testimonials-dark .carousel-arrow:hover{background:rgba(255,255,255,.15)}
+    .testimonials-dark .carousel-arrow svg{stroke:#ffffff}
+
     /* Testimonials responsive */
     .testimonial-box{
-      background:#ededed; 
-      border-radius:var(--radius); 
-      aspect-ratio:3/4; 
-      min-width:calc((100% - 48px) / 3); 
-      width:calc((100% - 48px) / 3); 
-      padding:28px 24px; 
-      display:flex; 
-      flex-direction:column; 
+      background:#ededed;
+      border-radius:var(--radius);
+      aspect-ratio:3/4;
+      min-width:calc((100% - 48px) / 3);
+      width:calc((100% - 48px) / 3);
+      padding:28px 24px;
+      display:flex;
+      flex-direction:column;
       gap:20px;
     }
     @media (max-width:920px){
@@ -866,9 +881,7 @@
         <div class="proofbar">
           <div style="text-align:center; width:100%; padding:36px 0">
             <p style="margin:0; font-size:15px; line-height:1.5; color:var(--text); font-family:'Funnel Display', ui-sans-serif, system-ui, sans-serif; text-decoration:underline; text-decoration-style:dotted; text-underline-offset:6px; text-decoration-color:var(--border); max-width:700px; margin:0 auto;">
-              Handwerker sollen sich auf ihr Handwerk konzentrieren.<br/>
-              Wir kümmern uns um Material, Zuschnitt und alles drum herum,<br/>
-              damit Aufträge sauber laufen und Kunden zufrieden sind.
+              Handwerker sollen sich auf ihr Handwerk konzentrieren. Wir kümmern uns um Material, Zuschnitt und alles drum herum, damit Aufträge sauber laufen und Kunden zufrieden sind.
             </p>
           </div>
         </div>
@@ -882,10 +895,10 @@
     <section class="features" style="padding-top:60px; padding-bottom:40px;">
       <div class="container">
         <div class="section-head" style="text-align:left;">
-          <h2 style="font-size:32px; margin-bottom:64px; display:inline-flex; align-items:center; gap:14px;">
+          <h2 style="font-size:32px; margin-bottom:48px; display:inline-flex; align-items:center; gap:14px;">
             <span style="position:relative; width:10px; height:10px;">
               <span style="position:absolute; width:10px; height:10px; border-radius:999px; background:#228B22; opacity:1;"></span>
-              <span style="position:absolute; width:10px; height:10px; border-radius:999px; background:#228B22; animation:pulse 5s ease-in-out infinite;"></span>
+              <span style="position:absolute; width:10px; height:10px; border-radius:999px; background:#228B22; animation:dotPulse 3s ease-in-out infinite;"></span>
             </span>
             Was Dich erwartet
           </h2>
@@ -895,7 +908,7 @@
 
           <!-- Item 1 -->
           <div style="display:flex; flex-direction:column; gap:24px; padding:0 32px 40px 0; border-right:1px solid rgba(0,0,0,0.1); border-bottom:1px solid rgba(0,0,0,0.1);">
-            <div style="width:36px; height:36px; border-radius:12px; background:rgba(34,139,34,.12); display:flex; align-items:center; justify-content:center;">
+            <div style="width:36px; height:36px; border-radius:var(--radius); background:rgba(34,139,34,.12); display:flex; align-items:center; justify-content:center;">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#228B22" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z"/>
               </svg>
@@ -908,7 +921,7 @@
 
           <!-- Item 2 -->
           <div style="display:flex; flex-direction:column; gap:24px; padding:0 32px 40px 32px; border-right:1px solid rgba(0,0,0,0.1); border-bottom:1px solid rgba(0,0,0,0.1);">
-            <div style="width:36px; height:36px; border-radius:12px; background:rgba(34,139,34,.12); display:flex; align-items:center; justify-content:center;">
+            <div style="width:36px; height:36px; border-radius:var(--radius); background:rgba(34,139,34,.12); display:flex; align-items:center; justify-content:center;">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#228B22" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6A2.25 2.25 0 0 1 6 3.75h2.25A2.25 2.25 0 0 1 10.5 6v2.25a2.25 2.25 0 0 1-2.25 2.25H6a2.25 2.25 0 0 1-2.25-2.25V6ZM3.75 15.75A2.25 2.25 0 0 1 6 13.5h2.25a2.25 2.25 0 0 1 2.25 2.25V18a2.25 2.25 0 0 1-2.25 2.25H6A2.25 2.25 0 0 1 3.75 18v-2.25ZM13.5 6a2.25 2.25 0 0 1 2.25-2.25H18A2.25 2.25 0 0 1 20.25 6v2.25A2.25 2.25 0 0 1 18 10.5h-2.25a2.25 2.25 0 0 1-2.25-2.25V6ZM13.5 15.75a2.25 2.25 0 0 1 2.25-2.25H18a2.25 2.25 0 0 1 2.25 2.25V18A2.25 2.25 0 0 1 18 20.25h-2.25a2.25 2.25 0 0 1-2.25-2.25v-2.25Z"/>
               </svg>
@@ -921,7 +934,7 @@
 
           <!-- Item 3 -->
           <div style="display:flex; flex-direction:column; gap:24px; padding:0 0 40px 32px; border-bottom:1px solid rgba(0,0,0,0.1);">
-            <div style="width:36px; height:36px; border-radius:12px; background:rgba(34,139,34,.12); display:flex; align-items:center; justify-content:center;">
+            <div style="width:36px; height:36px; border-radius:var(--radius); background:rgba(34,139,34,.12); display:flex; align-items:center; justify-content:center;">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#228B22" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
               </svg>
@@ -934,7 +947,7 @@
 
           <!-- Item 4 -->
           <div style="display:flex; flex-direction:column; gap:24px; padding:40px 32px 0 0; border-right:1px solid rgba(0,0,0,0.1);">
-            <div style="width:36px; height:36px; border-radius:12px; background:rgba(34,139,34,.12); display:flex; align-items:center; justify-content:center;">
+            <div style="width:36px; height:36px; border-radius:var(--radius); background:rgba(34,139,34,.12); display:flex; align-items:center; justify-content:center;">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#228B22" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="m20.25 7.5-.625 10.632a2.25 2.25 0 0 1-2.247 2.118H6.622a2.25 2.25 0 0 1-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z"/>
               </svg>
@@ -947,7 +960,7 @@
 
           <!-- Item 5 -->
           <div style="display:flex; flex-direction:column; gap:24px; padding:40px 32px 0 32px; border-right:1px solid rgba(0,0,0,0.1);">
-            <div style="width:36px; height:36px; border-radius:12px; background:rgba(34,139,34,.12); display:flex; align-items:center; justify-content:center;">
+            <div style="width:36px; height:36px; border-radius:var(--radius); background:rgba(34,139,34,.12); display:flex; align-items:center; justify-content:center;">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#228B22" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 0 1-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 0 1 4.5 0m0 0v5.714a2.25 2.25 0 0 0 .659 1.591L19 14.5M14.25 3.104c.251.023.501.05.75.082M19 14.5l-1.482 5.928A2.25 2.25 0 0 1 15.335 22H8.665a2.25 2.25 0 0 1-2.183-1.572L5 14.5m14 0H5"/>
               </svg>
@@ -960,7 +973,7 @@
 
           <!-- Item 6 -->
           <div style="display:flex; flex-direction:column; gap:24px; padding:40px 0 0 32px;">
-            <div style="width:36px; height:36px; border-radius:12px; background:rgba(34,139,34,.12); display:flex; align-items:center; justify-content:center;">
+            <div style="width:36px; height:36px; border-radius:var(--radius); background:rgba(34,139,34,.12); display:flex; align-items:center; justify-content:center;">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#228B22" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 21v-7.5a.75.75 0 0 1 .75-.75h3a.75.75 0 0 1 .75.75V21m-4.5 0H2.36m11.14 0H18m0 0h3.64m-1.39 0V9.349M3.75 21V9.349m0 0a3.001 3.001 0 0 0 3.75-.615A2.993 2.993 0 0 0 9.75 9.75c.896 0 1.7-.393 2.25-1.016a2.993 2.993 0 0 0 2.25 1.016c.896 0 1.7-.393 2.25-1.015a3.001 3.001 0 0 0 3.75.614m-16.5 0a3.004 3.004 0 0 1-.621-4.72l1.189-1.19A1.5 1.5 0 0 1 5.378 3h13.243a1.5 1.5 0 0 1 1.06.44l1.19 1.189a3 3 0 0 1-.621 4.72M6.75 18h3.75a.75.75 0 0 0 .75-.75V13.5a.75.75 0 0 0-.75-.75H6.75a.75.75 0 0 0-.75.75v3.75c0 .414.336.75.75.75Z"/>
               </svg>
@@ -1027,7 +1040,7 @@
     </div>
 
     <!-- Testimonials -->
-    <section class="features" style="padding-top:60px;">
+    <section class="features testimonials-dark" style="padding-top:60px; padding-bottom:60px; background:#000901; color:#ffffff; position:relative; margin-left:calc(50% - 50vw); margin-right:calc(50% - 50vw); padding-left:calc(50vw - 50%); padding-right:calc(50vw - 50%);">
       <div class="container">
         <div class="section-head" style="max-width:100%; text-align:center; margin-left:auto; margin-right:auto; margin-bottom:64px;">
           <h2>Das sagen begeisterte Handwerker</h2>
@@ -1039,7 +1052,7 @@
             <!-- Testimonial 1 -->
             <div class="testimonial-box">
               <div style="display:flex; gap:20px; align-items:center;">
-                <img src="https://kreaktivmoebel.de/wp-content/uploads/marcel-kramer.jpg" alt="Marcel Kramer" style="width:36px; height:36px; border-radius:999px; object-fit:cover; flex-shrink:0;">
+                <div style="width:36px; height:36px; border-radius:999px; background:linear-gradient(135deg, #228B22, #4CAF50); flex-shrink:0; display:flex; align-items:center; justify-content:center; color:white; font-size:13px; font-weight:600;">MK</div>
                 <div>
                   <div style="font-size:16px; font-weight:600; color:var(--text); line-height:1.3;">Marcel Kramer</div>
                 </div>
