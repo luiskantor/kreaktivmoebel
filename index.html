@@ -55,7 +55,7 @@
       background:rgba(255,255,255,.8);
       color:var(--text);
       font-family:'DM Sans', ui-sans-serif, system-ui, sans-serif;
-      font-weight:650;
+      font-weight:550;
       transition:transform .15s ease, box-shadow .15s ease, background .15s ease, border-color .15s ease;
       cursor:pointer;
       user-select:none;
@@ -239,10 +239,10 @@
       position:relative;
     }
     .hero-visual{
-      height:300px;
+      min-height:300px;
+      height:100%;
       background:linear-gradient(135deg, rgba(15,23,42,.02), rgba(15,23,42,.05));
     }
-    @media (min-width:920px){ .hero-visual{height:420px} }
     .overlay-card{
       position:absolute; left:16px; right:16px; bottom:16px;
       border:1px solid var(--border);
@@ -402,7 +402,7 @@
       color:white;
       font-family:'DM Sans', ui-sans-serif, system-ui, sans-serif;
       font-size:13px;
-      font-weight:600;
+      font-weight:500;
       cursor:pointer;
       transition:transform .15s ease, box-shadow .15s ease;
       flex-shrink:0;
@@ -818,7 +818,7 @@
       <div class="container">
         <div class="hero-grid">
           <div>
-            <div style="display:inline-flex; align-items:center; gap:8px; font-size:13px; color:var(--muted);">
+            <div style="display:inline-flex; align-items:center; gap:8px; font-size:13px; color:var(--muted); text-decoration:underline; text-decoration-style:dotted; text-underline-offset:6px; text-decoration-color:var(--border);">
               <span class="dot" aria-hidden="true"></span>
               <span>Über 100 Handwerker arbeiten bereits mit uns zusammen</span>
             </div>
@@ -863,13 +863,15 @@
     <section class="proof">
       <div class="container">
         <div class="proofbar">
-          <div style="text-align:center; width:100%; padding:52px 0 8px 0">
+          <div style="text-align:center; width:100%; padding:44px 0 8px 0">
             <p style="margin:0; font-size:15px; line-height:1.6; color:var(--text); font-family:'Funnel Display', ui-sans-serif, system-ui, sans-serif; text-decoration:underline; text-decoration-style:dotted; text-underline-offset:6px; text-decoration-color:var(--border);">
-              Bei uns geht es nicht nur um Zahlen, sondern um die Kraft, die sie entfalten können.<br/>
-              Denn erst kommt der Mensch, dann das Geschäft.
+              Handwerker sollen sich auf ihr Handwerk konzentrieren. Wir kümmern uns um Material, Zuschnitt und alles drum herum, damit Aufträge sauber laufen und Kunden zufrieden sind.
             </p>
           </div>
         </div>
+      </div>
+      <div style="position:relative; margin-top:18px;">
+        <div style="position:absolute; left:calc(50% - 50vw); width:100vw; height:1px; background:var(--border);"></div>
       </div>
     </section>
 
