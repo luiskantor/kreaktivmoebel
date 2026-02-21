@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Home of Experts · Wir suchen Dich!</title>
-  <link rel="icon" type="image/png" sizes="32x32" href="https://www.compexx-finanz.de/wp-content/uploads/2024/11/cropped-cropped-favicon-32x32-1-32x32.png">
+  <title>Wir suchen Dich! - KREAKTIVMÖBEL</title>
+  <link rel="icon" type="image/png" href="https://kreaktivmoebel.de/wp-content/uploads/2024/02/logoRGB_72ppi_Web.png">
   <meta name="description" content="Starte deine Karriere in der Finanzwelt – mit Struktur, Mentoring und Team-Fokus. 15 Minuten Kennenlernen – kostenlos & unverbindlich." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300;400;500;600;700;800&family=Geist+Mono:wght@400;600&family=Fuggles&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Funnel+Display:wght@300;400;500;600;700;800&family=Geist+Mono:wght@400;600&family=Fuggles&display=swap" rel="stylesheet">
   <style>
     :root{
       --bg:#ffffff;
@@ -54,6 +54,7 @@
       border:1px solid var(--border);
       background:rgba(255,255,255,.8);
       color:var(--text);
+      font-family:'DM Sans', ui-sans-serif, system-ui, sans-serif;
       font-weight:650;
       transition:transform .15s ease, box-shadow .15s ease, background .15s ease, border-color .15s ease;
       cursor:pointer;
@@ -62,10 +63,10 @@
     .btn:hover{transform:translateY(-1px); box-shadow: var(--shadow)}
     .btn:active{transform:translateY(0)}
     .btn.primary{
-      border-color:rgba(29,78,216,.35);
-      background:linear-gradient(135deg, rgba(29,78,216,.95), rgba(14,165,233,.95));
+      border-color:rgba(27,94,32,.35);
+      background:linear-gradient(135deg, rgba(27,94,32,.95), rgba(46,125,50,.95));
       color:white;
-      box-shadow: 0 14px 34px rgba(29,78,216,.22), inset 0 -12px 20px rgba(255,255,255,.18);
+      box-shadow: 0 14px 34px rgba(27,94,32,.22), inset 0 -12px 20px rgba(255,255,255,.18);
       position:relative;
       overflow:hidden;
     }
@@ -90,7 +91,7 @@
       60%{transform:translateX(100%) translateY(100%) rotate(45deg)}
       100%{transform:translateX(100%) translateY(100%) rotate(45deg)}
     }
-    .btn.primary:hover{box-shadow:0 18px 44px rgba(29,78,216,.26), inset 0 -12px 20px rgba(255,255,255,.18)}
+    .btn.primary:hover{box-shadow:0 18px 44px rgba(27,94,32,.26), inset 0 -12px 20px rgba(255,255,255,.18)}
     .btn.link{
       border:none; background:transparent; padding:8px 10px; color:var(--muted);
     }
@@ -274,20 +275,21 @@
     /* Proof strip */
     .proof{
       padding: 18px 0 4px;
+      position:relative;
+    }
+    .proof::before{
+      content:'';
+      position:absolute;
+      top:0;
+      left:calc(50% - 50vw);
+      width:100vw;
+      height:1px;
+      background:var(--border);
     }
     .proofbar{
       display:flex; gap:10px; flex-wrap:wrap; align-items:center; justify-content:space-between;
       padding:12px 14px;
       position:relative;
-    }
-    .proofbar::before{
-      content:'';
-      position:absolute;
-      top:0;
-      left:0;
-      right:0;
-      height:1px;
-      background:linear-gradient(90deg, transparent, var(--border) 20%, var(--border) 80%, transparent);
     }
     .proof-left{display:flex; gap:12px; align-items:center; flex-wrap:wrap}
     .kpi{
@@ -395,16 +397,17 @@
     .job-apply{
       padding:10px 24px;
       border-radius:999px;
-      border:1px solid rgba(29,78,216,.35);
-      background:linear-gradient(135deg, rgba(29,78,216,.95), rgba(14,165,233,.95));
+      border:1px solid rgba(27,94,32,.35);
+      background:linear-gradient(135deg, rgba(27,94,32,.95), rgba(46,125,50,.95));
       color:white;
+      font-family:'DM Sans', ui-sans-serif, system-ui, sans-serif;
       font-size:13px;
       font-weight:600;
       cursor:pointer;
       transition:transform .15s ease, box-shadow .15s ease;
       flex-shrink:0;
       white-space:nowrap;
-      box-shadow: 0 14px 34px rgba(29,78,216,.22), inset 0 -12px 20px rgba(255,255,255,.18);
+      box-shadow: 0 14px 34px rgba(27,94,32,.22), inset 0 -12px 20px rgba(255,255,255,.18);
       position:relative;
       overflow:hidden;
     }
@@ -426,7 +429,7 @@
     }
     .job-apply:hover{
       transform:translateY(-1px);
-      box-shadow:0 18px 44px rgba(29,78,216,.26), inset 0 -12px 20px rgba(255,255,255,.18);
+      box-shadow:0 18px 44px rgba(27,94,32,.26), inset 0 -12px 20px rgba(255,255,255,.18);
     }
     }
     
@@ -625,14 +628,14 @@
     .foot a{transition:color .15s ease}
     .foot a:hover{color:var(--text)}
 
-    /* Vertical separator lines */
-    body{
+    /* Vertical separator lines – only inside main */
+    main{
       position:relative;
     }
-    body::before,
-    body::after{
+    main::before,
+    main::after{
       content:'';
-      position:fixed;
+      position:absolute;
       top:0;
       bottom:0;
       width:1px;
@@ -640,17 +643,17 @@
       z-index:50;
       pointer-events:none;
     }
-    body::before{
+    main::before{
       left:calc(50% - var(--max)/2 - 40px);
     }
-    body::after{
+    main::after{
       right:calc(50% - var(--max)/2 - 40px);
     }
     @media (max-width:1200px){
-      body::before{
+      main::before{
         left:0;
       }
-      body::after{
+      main::after{
         right:0;
       }
     }
@@ -833,13 +836,13 @@
                 <div class="check">
                   <svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg>
                 </div>
-                <div>Regelmäßiges Mentoring & Feedback</div>
+                <div>Maßgenauer Zuschnitt und Kantenbearbeitung</div>
               </div>
               <div class="bullet">
                 <div class="check">
                   <svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg>
                 </div>
-                <div>Team-Kultur, die langfristige Entwicklung fördert</div>
+                <div>Kostenfreie Nutzung unseres Showrooms für deine Kunden</div>
               </div>
             </div>
 
@@ -1287,32 +1290,6 @@
     });
 
   </script>
-<!-- ProvenExpert ProSeal Widget -->
-<noscript>
-<a href="https://www.provenexpert.com/compexxfinanz-ag-geschaeftsstelle-blaubeuren/?utm_source=seals&utm_campaign=proseal&utm_medium=profile&utm_content=74f38113-3b83-4bf2-82bc-d80f435501ca" target="_blank" title="Customer reviews & experiences for CompexxFINANZ AG Geschäftsstelle Blaubeuren" class="pe-pro-seal-more-infos" >More info</a>
-</noscript>
-<script nowprocket id="proSeal">
-      window.loadProSeal = function(){
-          window.provenExpert.proSeal({
-            widgetId: "74f38113-3b83-4bf2-82bc-d80f435501ca",
-            language:"de-DE",
-            usePageLanguage: false,
-            bannerColor: "#2451D7",
-            textColor: "#FFFFFF",
-            showReviews: true,
-            hideDate: true,
-            hideName: false,
-            hideOnMobile: false,
-            bottom: "24px",
-            stickyToSide: "right",
-            googleStars: true,
-            zIndex: "9999",
-            displayReviewerLastName: false,
-          })
-      };
-</script>
-<script nowprocket src="https://s.provenexpert.net/seals/proseal-v2.js"  onload='loadProSeal()'></script>
-<!-- ProvenExpert ProSeal Widget -->
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   // Hero headline uses CSS-only line-by-line animation
