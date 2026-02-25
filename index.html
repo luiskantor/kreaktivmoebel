@@ -239,6 +239,26 @@
       min-height:300px;
       height:100%;
       background:linear-gradient(135deg, rgba(15,23,42,.02), rgba(15,23,42,.05));
+      position:relative;
+    }
+    .hero-visual .hero-credit{
+      position:absolute;
+      bottom:16px;
+      right:20px;
+      text-align:right;
+      color:#fff;
+      text-shadow:0 1px 4px rgba(0,0,0,.5);
+    }
+    .hero-visual .hero-credit .credit-name{
+      font-family:'Fuggles', cursive;
+      font-size:28px;
+      line-height:1.1;
+    }
+    .hero-visual .hero-credit .credit-title{
+      font-family:'DM Sans', sans-serif;
+      font-size:14px;
+      opacity:.5;
+      line-height:1.3;
     }
     .overlay-card{
       position:absolute; left:16px; right:16px; bottom:16px;
@@ -855,6 +875,10 @@
 
           <div class="hero-card">
             <div class="hero-visual" style="background-image:url('Foto2.jpeg'); background-size:cover; background-position:center;">
+              <div class="hero-credit">
+                <div class="credit-name">Oleg Gorceac</div>
+                <div class="credit-title">Geschäftsführer KREAKTIVMÖBEL GmbH</div>
+              </div>
             </div>
           </div>
         </div>
