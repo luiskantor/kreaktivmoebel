@@ -775,33 +775,44 @@
         position:relative !important;
         z-index:2 !important;
       }
-      /* Vertical progress bar between circles */
+      /* Vertical progress bar between circles (with gap to circles) */
       .infographic-step:not(:last-child)::after{
         content:'';
         position:absolute;
-        left:24px;
-        top:48px;
-        bottom:0;
+        left:23px;
+        top:56px;
+        bottom:8px;
         width:2px;
         background:linear-gradient(180deg, #228B22, #4CAF50);
+        background-size:200% 200%;
         z-index:1;
+      }
+      /* Animate progress bars when visible */
+      .infographic-step.in-view:not(:last-child)::after{
+        animation:progressGrow 0.8s ease forwards;
+      }
+      @keyframes progressGrow{
+        from{transform:scaleY(0); transform-origin:top}
+        to{transform:scaleY(1); transform-origin:top}
       }
       /* Card: no border, no background, just content */
       .infographic-step > div:last-child{
         border:none !important;
         background:none !important;
         box-shadow:none !important;
-        padding:4px 0 32px 20px !important;
+        padding:4px 0 40px 20px !important;
         margin-top:0 !important;
         border-radius:0 !important;
       }
       /* Separator line between steps */
       .infographic-step:not(:last-child) > div:last-child{
         border-bottom:1px solid var(--border) !important;
+        padding-bottom:40px !important;
+        margin-bottom:8px !important;
       }
-      /* Hide the small icon inside cards on mobile */
+      /* Icon inside cards on mobile - inline left-aligned */
       .infographic-step > div:last-child > div:first-child{
-        display:none !important;
+        margin:0 0 12px !important;
       }
       /* Testimonials: stack vertically */
       .testimonial-box{
@@ -1399,6 +1410,19 @@ document.addEventListener('DOMContentLoaded', function() {
     item.style.transform = 'translateY(20px)';
     item.style.transition = 'opacity 0.6s ease ' + (idx * 0.1) + 's, transform 0.6s ease ' + (idx * 0.1) + 's';
     observer.observe(item);
+  });
+
+  // Animate infographic progress bars on scroll
+  const stepObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+      }
+    });
+  }, {threshold: 0.3});
+  document.querySelectorAll('.infographic-step').forEach((step, idx) => {
+    step.style.transitionDelay = (idx * 0.2) + 's';
+    stepObserver.observe(step);
   });
 });
 </script>
