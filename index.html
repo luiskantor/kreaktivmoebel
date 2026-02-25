@@ -789,30 +789,49 @@
       }
       /* Animate progress bars when visible */
       .infographic-step.in-view:not(:last-child)::after{
-        animation:progressGrow 0.8s ease forwards;
+        animation:progressGrow 1.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
       }
       @keyframes progressGrow{
         from{transform:scaleY(0); transform-origin:top}
         to{transform:scaleY(1); transform-origin:top}
       }
-      /* Card: no border, no background, just content */
+      /* Card: no border, no background, grid layout for icon+title row */
       .infographic-step > div:last-child{
         border:none !important;
         background:none !important;
         box-shadow:none !important;
-        padding:4px 0 40px 20px !important;
+        padding:4px 0 56px 20px !important;
         margin-top:0 !important;
         border-radius:0 !important;
+        display:grid !important;
+        grid-template-columns:40px 1fr;
+        grid-template-rows:auto auto;
+        column-gap:12px;
+        row-gap:12px;
+        align-items:center;
+      }
+      /* Icon: first column, first row */
+      .infographic-step > div:last-child > div:first-child{
+        margin:0 !important;
+        grid-column:1;
+        grid-row:1;
+      }
+      /* Title: second column, first row (next to icon) */
+      .infographic-step > div:last-child > h4{
+        grid-column:2;
+        grid-row:1;
+        margin:0 !important;
+      }
+      /* Description: spans both columns */
+      .infographic-step > div:last-child > p{
+        grid-column:1 / -1;
+        grid-row:2;
       }
       /* Separator line between steps */
       .infographic-step:not(:last-child) > div:last-child{
         border-bottom:1px solid var(--border) !important;
-        padding-bottom:40px !important;
+        padding-bottom:56px !important;
         margin-bottom:8px !important;
-      }
-      /* Icon inside cards on mobile - inline left-aligned */
-      .infographic-step > div:last-child > div:first-child{
-        margin:0 0 12px !important;
       }
       /* Testimonials: stack vertically */
       .testimonial-box{
