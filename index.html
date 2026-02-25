@@ -748,7 +748,7 @@
       gap:20px;
     }
     @media (max-width:920px){
-      /* Infographic: vertical on mobile */
+      /* Infographic: vertical timeline on mobile */
       .infographic-grid{
         grid-template-columns:1fr !important;
         gap:0 !important;
@@ -756,24 +756,52 @@
       .infographic-line{
         display:none !important;
       }
-      .infographic-grid > div[style*="flex-direction:column"]{
+      .infographic-step{
         flex-direction:row !important;
         align-items:flex-start !important;
         text-align:left !important;
-        gap:20px !important;
+        gap:0 !important;
+        padding-bottom:0 !important;
+        position:relative !important;
       }
-      .infographic-grid > div[style*="flex-direction:column"] > div[style*="width:72px"]{
+      /* Number circle column with progress bar */
+      .infographic-step > div:first-child{
         width:48px !important;
         height:48px !important;
-        min-width:48px;
-        font-size:20px !important;
-        flex-shrink:0;
+        min-width:48px !important;
+        font-size:18px !important;
+        flex-shrink:0 !important;
+        box-shadow:0 2px 8px rgba(34,139,34,.2) !important;
+        position:relative !important;
+        z-index:2 !important;
       }
-      .infographic-grid > div[style*="flex-direction:column"] > div[style*="border-radius:var"]{
+      /* Vertical progress bar between circles */
+      .infographic-step:not(:last-child)::after{
+        content:'';
+        position:absolute;
+        left:24px;
+        top:48px;
+        bottom:0;
+        width:2px;
+        background:linear-gradient(180deg, #228B22, #4CAF50);
+        z-index:1;
+      }
+      /* Card: no border, no background, just content */
+      .infographic-step > div:last-child{
+        border:none !important;
+        background:none !important;
+        box-shadow:none !important;
+        padding:4px 0 32px 20px !important;
         margin-top:0 !important;
+        border-radius:0 !important;
       }
-      .infographic-grid > div[style*="flex-direction:column"] > div[style*="border-radius:var"] > div[style*="margin:0 auto"]{
-        margin:0 0 16px !important;
+      /* Separator line between steps */
+      .infographic-step:not(:last-child) > div:last-child{
+        border-bottom:1px solid var(--border) !important;
+      }
+      /* Hide the small icon inside cards on mobile */
+      .infographic-step > div:last-child > div:first-child{
+        display:none !important;
       }
       /* Testimonials: stack vertically */
       .testimonial-box{
@@ -1046,7 +1074,7 @@
           <div class="infographic-line" style="position:absolute; top:36px; left:calc(16.66% + 36px); right:calc(16.66% + 36px); height:2px; background:linear-gradient(90deg, #228B22, #4CAF50); z-index:0;"></div>
 
           <!-- Step 1 -->
-          <div style="display:flex; flex-direction:column; align-items:center; text-align:center; position:relative; z-index:1;">
+          <div class="infographic-step" style="display:flex; flex-direction:column; align-items:center; text-align:center; position:relative; z-index:1;">
             <div style="width:72px; height:72px; border-radius:999px; background:linear-gradient(135deg, #1B5E20, #2E7D32); color:white; display:flex; align-items:center; justify-content:center; font-size:26px; font-weight:700; font-family:'Funnel Display', ui-sans-serif, system-ui, sans-serif; flex-shrink:0; box-shadow:0 4px 16px rgba(34,139,34,.25), 0 0 0 6px rgba(34,139,34,.08);">1</div>
             <div style="background:var(--bg); border:1px solid var(--border); border-radius:var(--radius); padding:28px 24px 24px; margin-top:24px; flex:1; width:100%;">
               <div style="width:40px; height:40px; border-radius:var(--radius); background:rgba(34,139,34,.08); display:flex; align-items:center; justify-content:center; margin:0 auto 16px;">
@@ -1058,7 +1086,7 @@
           </div>
 
           <!-- Step 2 -->
-          <div style="display:flex; flex-direction:column; align-items:center; text-align:center; position:relative; z-index:1;">
+          <div class="infographic-step" style="display:flex; flex-direction:column; align-items:center; text-align:center; position:relative; z-index:1;">
             <div style="width:72px; height:72px; border-radius:999px; background:linear-gradient(135deg, #1B5E20, #2E7D32); color:white; display:flex; align-items:center; justify-content:center; font-size:26px; font-weight:700; font-family:'Funnel Display', ui-sans-serif, system-ui, sans-serif; flex-shrink:0; box-shadow:0 4px 16px rgba(34,139,34,.25), 0 0 0 6px rgba(34,139,34,.08);">2</div>
             <div style="background:var(--bg); border:1px solid var(--border); border-radius:var(--radius); padding:28px 24px 24px; margin-top:24px; flex:1; width:100%;">
               <div style="width:40px; height:40px; border-radius:var(--radius); background:rgba(34,139,34,.08); display:flex; align-items:center; justify-content:center; margin:0 auto 16px;">
@@ -1070,7 +1098,7 @@
           </div>
 
           <!-- Step 3 -->
-          <div style="display:flex; flex-direction:column; align-items:center; text-align:center; position:relative; z-index:1;">
+          <div class="infographic-step" style="display:flex; flex-direction:column; align-items:center; text-align:center; position:relative; z-index:1;">
             <div style="width:72px; height:72px; border-radius:999px; background:linear-gradient(135deg, #1B5E20, #2E7D32); color:white; display:flex; align-items:center; justify-content:center; font-size:26px; font-weight:700; font-family:'Funnel Display', ui-sans-serif, system-ui, sans-serif; flex-shrink:0; box-shadow:0 4px 16px rgba(34,139,34,.25), 0 0 0 6px rgba(34,139,34,.08);">3</div>
             <div style="background:var(--bg); border:1px solid var(--border); border-radius:var(--radius); padding:28px 24px 24px; margin-top:24px; flex:1; width:100%;">
               <div style="width:40px; height:40px; border-radius:var(--radius); background:rgba(34,139,34,.08); display:flex; align-items:center; justify-content:center; margin:0 auto 16px;">
