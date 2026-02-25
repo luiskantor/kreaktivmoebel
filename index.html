@@ -642,8 +642,9 @@
       transform:none !important;
     }
     .foot{
-      display:flex; gap:14px; flex-wrap:wrap; justify-content:space-between;
+      display:flex; gap:14px; flex-wrap:wrap; justify-content:center;
       align-items:center; font-size:13px; color:var(--muted);
+      text-align:center;
     }
     .foot a{transition:color .15s ease}
     .foot a:hover{color:var(--text)}
@@ -747,13 +748,32 @@
       gap:20px;
     }
     @media (max-width:920px){
-      /* Infographic: 1 column on mobile */
-      .timeline .container > div > div[style*="grid-template-columns:repeat(3"]{
+      /* Infographic: vertical on mobile */
+      .infographic-grid{
         grid-template-columns:1fr !important;
-        gap:24px !important;
+        gap:0 !important;
       }
-      .timeline .container > div > div[style*="grid-template-columns:repeat(3"] > div[style*="position:absolute"]{
+      .infographic-line{
         display:none !important;
+      }
+      .infographic-grid > div[style*="flex-direction:column"]{
+        flex-direction:row !important;
+        align-items:flex-start !important;
+        text-align:left !important;
+        gap:20px !important;
+      }
+      .infographic-grid > div[style*="flex-direction:column"] > div[style*="width:72px"]{
+        width:48px !important;
+        height:48px !important;
+        min-width:48px;
+        font-size:20px !important;
+        flex-shrink:0;
+      }
+      .infographic-grid > div[style*="flex-direction:column"] > div[style*="border-radius:var"]{
+        margin-top:0 !important;
+      }
+      .infographic-grid > div[style*="flex-direction:column"] > div[style*="border-radius:var"] > div[style*="margin:0 auto"]{
+        margin:0 0 16px !important;
       }
       /* Testimonials: stack vertically */
       .testimonial-box{
@@ -1020,10 +1040,10 @@
           <p style="margin:0; font-size:15px; color:var(--muted);">In drei einfachen Schritten zum fertigen Projekt</p>
         </div>
 
-        <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:32px; position:relative;">
+        <div class="infographic-grid" style="display:grid; grid-template-columns:repeat(3, 1fr); gap:32px; position:relative;">
 
           <!-- Horizontal connector line -->
-          <div style="position:absolute; top:36px; left:calc(16.66% + 36px); right:calc(16.66% + 36px); height:2px; background:linear-gradient(90deg, #228B22, #4CAF50); z-index:0;"></div>
+          <div class="infographic-line" style="position:absolute; top:36px; left:calc(16.66% + 36px); right:calc(16.66% + 36px); height:2px; background:linear-gradient(90deg, #228B22, #4CAF50); z-index:0;"></div>
 
           <!-- Step 1 -->
           <div style="display:flex; flex-direction:column; align-items:center; text-align:center; position:relative; z-index:1;">
@@ -1161,10 +1181,10 @@
     <div class="container">
       <div class="foot">
         <div>© <span id="year"></span> KREAKTIVMÖBEL GmbH</div>
-        <div style="display:flex; gap:14px; flex-wrap:wrap">
-          <a href="https://kreaktivmoebel.de/impressum/" target="_blank" rel="noopener noreferrer">Impressum</a>
-          <a href="https://kreaktivmoebel.de/datenschutzerklaerung/" target="_blank" rel="noopener noreferrer">Datenschutz</a>
-        </div>
+        <span style="color:var(--border);">·</span>
+        <a href="https://kreaktivmoebel.de/impressum/" target="_blank" rel="noopener noreferrer">Impressum</a>
+        <span style="color:var(--border);">·</span>
+        <a href="https://kreaktivmoebel.de/datenschutzerklaerung/" target="_blank" rel="noopener noreferrer">Datenschutz</a>
       </div>
     </div>
   </footer>
