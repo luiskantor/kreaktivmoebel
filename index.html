@@ -612,39 +612,45 @@
     .cta-feats{display:flex; gap:10px; flex-wrap:wrap; margin-top:12px}
     
     /* Calendly responsive */
-    .calendly-inline-widget{
-      width:100%;
-      min-width:320px;
-      height:850px;
-      border-radius:var(--radius2);
-      overflow:hidden;
-    }
-    @media (min-width:600px){
-      .calendly-inline-widget{height:750px}
-    }
-    @media (min-width:900px){
-      .calendly-inline-widget{height:700px}
-    }
+
 
     /* Form */
-    .form-grid{display:grid; gap:14px}
+    .form-grid{display:grid; gap:18px}
     label{
       display:block; font-size:13px; font-weight:600; margin-bottom:6px; color:var(--text);
+      letter-spacing:0.02em;
     }
+    label .required{color:var(--accent); margin-left:2px}
     input, select, textarea{
       width:100%; border:1px solid var(--border);
-      border-radius:var(--radius); padding:10px 12px;
+      border-radius:var(--radius); padding:12px 14px;
       font:inherit; font-size:14px; color:var(--text);
       background:rgba(255,255,255,.9);
-      transition:border-color .15s ease;
+      transition:border-color .2s ease, box-shadow .2s ease;
     }
     input:focus, select:focus, textarea:focus{
       outline:none; border-color:var(--accent);
+      box-shadow:0 0 0 3px rgba(34,139,34,.1);
     }
+    input::placeholder, textarea::placeholder{color:var(--muted); opacity:0.6}
+    select{
+      appearance:none;
+      -webkit-appearance:none;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+      background-repeat:no-repeat;
+      background-position:right 12px center;
+      background-size:16px;
+      padding-right:40px;
+      cursor:pointer;
+    }
+    select:hover{border-color:rgba(34,139,34,.4)}
+    select option{padding:8px}
     textarea{resize:vertical; min-height:80px}
-    .row2{display:grid; gap:14px}
+    .row2{display:grid; gap:18px}
     @media (min-width:640px){ .row2{grid-template-columns: 1fr 1fr} }
-    .form-actions{display:flex; gap:10px; flex-wrap:wrap}
+    .row3{display:grid; gap:18px}
+    @media (min-width:640px){ .row3{grid-template-columns: 1fr 1fr 1fr} }
+    .form-actions{display:flex; gap:10px; flex-wrap:wrap; margin-top:8px}
     .divider{height:1px; background:var(--border); margin:6px 0}
     .fineprint{font-size:12px; color:var(--muted); line-height:1.5}
 
@@ -1231,19 +1237,48 @@
     <!-- Final CTA + form -->
     <section class="final" id="final">
       <div class="container">
-        <div style="text-align:center; max-width:720px; margin:0 auto 16px">
+        <div style="text-align:center; max-width:720px; margin:0 auto 32px">
           <h3 style="margin:0; font-size:32px">Lass' uns in einem<br>Erstgespräch kennenlernen</h3>
+          <p class="subhead" style="margin:16px auto 0; text-align:center">Fülle das Formular aus und wir melden uns innerhalb von 24 Stunden bei dir.</p>
         </div>
-        
-        <div style="width:100%; max-width:var(--max); margin:0 auto;">
-          <div class="calendly-inline-widget" 
-               data-url="https://calendly.com/kreaktivmoebel-info/kennenlernen?embed_type=Inline">
-          </div>
+
+        <div class="cta-box" style="max-width:640px; margin:0 auto; display:block">
+          <form class="form-grid" id="contact-form" onsubmit="return handleSubmit(event)">
+            <div>
+              <label for="cf-name">Name <span class="required">*</span></label>
+              <input type="text" id="cf-name" name="name" placeholder="Vor- und Nachname" required>
+            </div>
+
+            <div class="row2">
+              <div>
+                <label for="cf-email">E-Mail Adresse <span class="required">*</span></label>
+                <input type="email" id="cf-email" name="email" placeholder="name@firma.de" required>
+              </div>
+              <div>
+                <label for="cf-phone">Telefonnummer <span class="required">*</span></label>
+                <input type="tel" id="cf-phone" name="phone" placeholder="+49 …" required>
+              </div>
+            </div>
+
+            <div>
+              <label for="cf-type">Was trifft auf dich zu?</label>
+              <select id="cf-type" name="type">
+                <option value="" selected>Bitte auswählen …</option>
+                <option value="angehend">Angehender selbstständiger Handwerker</option>
+                <option value="etabliert">Etablierter selbstständiger Handwerker</option>
+                <option value="angestellt">Angestellter Handwerker</option>
+              </select>
+            </div>
+
+            <div class="form-actions">
+              <button class="btn primary" type="submit" style="width:100%">Anfrage absenden <svg style="width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+            </div>
+
+            <p class="fineprint" style="text-align:center">Mit dem Absenden stimmst du unserer <a href="https://kreaktivmoebel.de/datenschutzerklaerung/" target="_blank" rel="noopener noreferrer">Datenschutzerklärung</a> zu.</p>
+          </form>
         </div>
       </div>
     </section>
-
-    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
 
   </main>
 
@@ -1284,6 +1319,18 @@
 
 
   <script>
+    function handleSubmit(e){
+      e.preventDefault();
+      var form = document.getElementById('contact-form');
+      var box = form.closest('.cta-box');
+      box.innerHTML = '<div style="text-align:center;padding:48px 24px">'
+        + '<div style="width:48px;height:48px;border-radius:50%;background:rgba(34,139,34,.1);display:inline-flex;align-items:center;justify-content:center;margin-bottom:16px">'
+        + '<svg width="24" height="24" fill="none" stroke="#228B22" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg>'
+        + '</div>'
+        + '<h4 style="margin:0 0 8px;font-size:20px">Vielen Dank!</h4>'
+        + '<p style="color:var(--muted);font-size:14px;margin:0">Wir melden uns in Kürze bei dir.</p>'
+        + '</div>';
+    }
     // Simple helpers
     const $ = (sel, root=document) => root.querySelector(sel);
     const $$ = (sel, root=document) => Array.from(root.querySelectorAll(sel));
