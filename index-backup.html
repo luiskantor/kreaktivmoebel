@@ -1,0 +1,1452 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Wir suchen Dich! – KREAKTIVMÖBEL</title>
+  <link rel="icon" type="image/png" href="https://kreaktivmoebel.de/wp-content/uploads/2024/02/logoRGB_72ppi_Web.png">
+  <meta name="description" content="KREAKTIVMÖBEL – Dein Partner für maßgenaue Zuschnitte, Kanten, Beschläge und Zubehör. Alles aus einer Hand für Handwerker und Tischler." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&family=Funnel+Display:wght@300;400;500;600;700;800&family=Geist+Mono:wght@400;600&family=Fuggles&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#ffffff;
+      --surface:#f7f7f8;
+      --surface2:#fbfbfc;
+      --text:#0b1220;
+      --muted:#5b6474;
+      --border:rgba(15, 23, 42, .10);
+      --shadow:0 10px 30px rgba(2, 6, 23, .08);
+      --shadow2:0 6px 20px rgba(2, 6, 23, .10);
+      --accent:#1d4ed8;
+      --accent2:#0ea5e9;
+      --good:#16a34a;
+      --warn:#f59e0b;
+      --radius:4px;
+      --radius2:4px;
+      --max:1120px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:auto}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--text);
+      background:var(--bg);
+    }
+
+    a{color:inherit; text-decoration:none}
+    .container{max-width:var(--max); margin:0 auto; padding:0 22px}
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:6px 12px; border:1px solid var(--border);
+      border-radius:999px; background:rgba(255,255,255,.5);
+      backdrop-filter: blur(10px);
+      font-size:13px; color:var(--muted);
+    }
+    .dot{width:8px; height:8px; border-radius:999px; background:linear-gradient(135deg, #228B22, #4CAF50)}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding:10px 16px;
+      border-radius:var(--radius);
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.8);
+      color:var(--text);
+      font-family:'DM Sans', ui-sans-serif, system-ui, sans-serif;
+      font-weight:550;
+      transition:transform .15s ease, box-shadow .15s ease, background .15s ease, border-color .15s ease;
+      cursor:pointer;
+      user-select:none;
+    }
+    .btn:hover{transform:translateY(-1px); box-shadow: var(--shadow)}
+    .btn:active{transform:translateY(0)}
+    .btn.primary{
+      border-color:rgba(27,94,32,.35);
+      background:linear-gradient(135deg, rgba(27,94,32,.95), rgba(46,125,50,.95));
+      color:white;
+      box-shadow: 0 14px 34px rgba(27,94,32,.22), inset 0 -12px 20px rgba(255,255,255,.18);
+      position:relative;
+      overflow:hidden;
+    }
+    .btn.primary::before{
+      content:'';
+      position:absolute;
+      top:-50%;
+      left:-50%;
+      width:200%;
+      height:200%;
+      background:linear-gradient(
+        45deg,
+        transparent 30%,
+        rgba(255,255,255,0.3) 50%,
+        transparent 70%
+      );
+      transform:translateX(-100%) translateY(-100%) rotate(45deg);
+      animation:shimmer 5s infinite;
+    }
+    @keyframes shimmer{
+      0%{transform:translateX(-100%) translateY(-100%) rotate(45deg)}
+      60%{transform:translateX(100%) translateY(100%) rotate(45deg)}
+      100%{transform:translateX(100%) translateY(100%) rotate(45deg)}
+    }
+    .btn.primary:hover{box-shadow:0 18px 44px rgba(27,94,32,.26), inset 0 -12px 20px rgba(255,255,255,.18)}
+    .btn.link{
+      border:none; background:transparent; padding:8px 10px; color:var(--muted);
+    }
+    .btn.link:hover{box-shadow:none; transform:none; color:var(--text); background:rgba(15,23,42,.04)}
+
+    /* Gradient text */
+    .gradient-text{
+      color:#2E7D32;
+    }
+
+    /* Hero word-by-word animation */
+    .hero h1{
+      display:flex;
+      flex-direction:column;
+    }
+    .hero-word{
+      display:inline-block;
+      opacity:0;
+      animation:wordRevealH 0.5s ease forwards;
+    }
+    @keyframes wordRevealH{
+      from{opacity:0; transform:translateY(18px)}
+      to{opacity:1; transform:translateY(0)}
+    }
+
+
+    /* Animations */
+    @keyframes fadeInUp{
+      from{opacity:0; transform:translateY(30px)}
+      to{opacity:1; transform:translateY(0)}
+    }
+    @keyframes fadeIn{
+      from{opacity:0}
+      to{opacity:1}
+    }
+    @keyframes slideInLeft{
+      from{opacity:0; transform:translateX(-30px)}
+      to{opacity:1; transform:translateX(0)}
+    }
+    @keyframes wordReveal{
+      from{opacity:0; transform:translateY(10px)}
+      to{opacity:1; transform:translateY(0)}
+    }
+    .animate-on-scroll{
+      opacity:0;
+      animation:fadeInUp 0.8s ease forwards;
+    }
+    .fade-in{
+      animation:fadeIn 1s ease forwards;
+    }
+    .slide-in-left{
+      animation:slideInLeft 0.6s ease forwards;
+    }
+    /* Sticky header */
+    .header{
+      position:sticky;
+      top:0;
+      z-index:40;
+      background:rgba(255,255,255,.75);
+      backdrop-filter: blur(12px);
+      border-bottom:1px solid var(--border);
+    }
+    .header-inner{
+      height:64px;
+      display:flex; align-items:center; justify-content:space-between; gap:18px;
+    }
+    .brand{
+      display:flex; align-items:center;
+    }
+    .logo{
+      width:34px; height:34px; border-radius:var(--radius);
+      background:linear-gradient(135deg, rgba(29,78,216,.95), rgba(14,165,233,.95));
+      box-shadow: 0 12px 24px rgba(29,78,216,.18);
+    }
+    .brand strong{display:block; font-size:14px; letter-spacing:.2px}
+    .brand span{display:block; font-size:12px; color:var(--muted); margin-top:2px}
+    .header-cta{
+      display:flex; align-items:center; gap:12px;
+    }
+    .microtrust{display:none; font-size:12px; color:var(--muted)}
+    @media (min-width:860px){ .microtrust{display:block} }
+
+    /* Hero */
+    .hero{
+      padding:52px 0 42px;
+      background:
+        radial-gradient(900px 400px at 25% 0%, rgba(34,139,34,.16), transparent 60%),
+        radial-gradient(900px 400px at 85% 0%, rgba(76,175,80,.14), transparent 60%);
+    }
+    .hero-grid{
+      display:grid; gap:38px;
+      grid-template-columns: 1fr;
+      align-items:stretch;
+    }
+    @media (min-width:920px){
+      .hero-grid{grid-template-columns: 1.08fr .92fr; gap:42px}
+      .hero{
+        padding:64px 0 52px;
+        background:
+          radial-gradient(1100px 500px at 25% 0%, rgba(34,139,34,.16), transparent 60%),
+          radial-gradient(1100px 500px at 85% 0%, rgba(76,175,80,.14), transparent 60%);
+      }
+    }
+    h1{
+      font-family: 'Geist', ui-sans-serif, system-ui, sans-serif;
+      font-weight: 500;
+      font-size: clamp(34px, 4.1vw, 52px);
+      line-height:1.03;
+      margin:22px 0 24px;
+      letter-spacing:-0.05em;
+    }
+    .subhead{
+      color:var(--muted);
+      font-size:16px;
+      line-height:1.6;
+      max-width:56ch;
+      margin:0 0 24px;
+    }
+    .bullets{
+      display:grid; gap:16px;
+      margin: 0 0 32px;
+    }
+    .bullet{
+      display:flex; gap:18px; align-items:flex-start;
+      color:var(--text);
+      font-size:14px;
+    }
+    .check{
+      width:14px; height:14px;
+      display:flex; align-items:center; justify-content:center;
+      flex:0 0 auto; margin-top:3px;
+    }
+    .check svg{width:14px; height:14px; fill:none; stroke:var(--muted); stroke-width:2; stroke-linecap:round; stroke-linejoin:round}
+    .hero-actions{display:flex; gap:28px; flex-wrap:wrap; align-items:center}
+    .hero-actions .hint{font-size:12px; color:var(--muted)}
+    .hero-card{
+      border:1px solid var(--border);
+      border-radius: var(--radius2);
+      background:linear-gradient(180deg, rgba(255,255,255,.85), rgba(255,255,255,.6));
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      position:relative;
+    }
+    .hero-visual{
+      min-height:300px;
+      height:100%;
+      background:linear-gradient(135deg, rgba(15,23,42,.02), rgba(15,23,42,.05));
+      position:relative;
+    }
+    .hero-visual .hero-credit{
+      position:absolute;
+      bottom:20px;
+      right:24px;
+      text-align:right;
+      color:#fff;
+      text-shadow:0 1px 4px rgba(0,0,0,.5);
+    }
+    .hero-visual .hero-credit .credit-name{
+      font-family:'Fuggles', cursive;
+      font-size:32px;
+      line-height:1.1;
+    }
+    .hero-visual .hero-credit .credit-title{
+      font-family:'DM Sans', sans-serif;
+      font-size:14px;
+      opacity:.5;
+      line-height:1.3;
+    }
+    .overlay-card{
+      position:absolute; left:16px; right:16px; bottom:16px;
+      border:1px solid var(--border);
+      border-radius: var(--radius);
+      background:rgba(255,255,255,.92);
+      box-shadow: var(--shadow2);
+      padding:14px 14px 12px;
+    }
+    .overlay-title{
+      display:flex; align-items:center; justify-content:space-between;
+      font-weight:700; font-size:14px;
+      margin-bottom:10px;
+    }
+    .steps{
+      display:grid; gap:18px;
+    }
+    .step{
+      display:flex; gap:18px; align-items:flex-start;
+      font-size:13px; color:var(--muted);
+    }
+    .badge{
+      width:22px; height:22px; border-radius:var(--radius);
+      border:1px solid var(--border);
+      background:linear-gradient(135deg, rgba(29,78,216,.08), rgba(14,165,233,.08));
+      display:flex; align-items:center; justify-content:center;
+      color:var(--text); font-weight:750;
+      flex:0 0 auto;
+    }
+
+    /* Proof strip */
+    .proof{
+      padding: 18px 0 4px;
+      position:relative;
+    }
+    .proof::before{
+      content:'';
+      position:absolute;
+      top:0;
+      left:calc(50% - 50vw);
+      width:100vw;
+      height:1px;
+      background:var(--border);
+    }
+    .proofbar{
+      display:flex; gap:10px; flex-wrap:wrap; align-items:center; justify-content:space-between;
+      padding:12px 14px;
+      position:relative;
+    }
+    .proof-left{display:flex; gap:12px; align-items:center; flex-wrap:wrap}
+    .kpi{
+      display:flex; gap:10px; align-items:center;
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.8);
+      font-size:13px;
+      color:var(--muted);
+    }
+    .kpi strong{color:var(--text); font-weight:650}
+    .proof-right{display:flex; gap:8px; align-items:center}
+    .av-group{display:flex; align-items:center}
+    .avatar{
+      width:28px; height:28px; border-radius:999px; border:2px solid white;
+      margin-left:-6px; background:linear-gradient(135deg, var(--accent), var(--accent2))
+    }
+    .avatar:first-child{margin-left:0}
+    .av-text{font-size:12px; color:var(--muted); margin-left:6px}
+
+    /* Features */
+    .features{padding:72px 0 32px}
+    .section-head{
+      max-width:58ch; margin:0 0 48px;
+    }
+    h2{
+      font-family: 'Funnel Display', ui-sans-serif, system-ui, sans-serif;
+      font-size:clamp(26px, 3.1vw, 38px);
+      line-height:1.1;
+      margin:0 0 8px;
+      letter-spacing:-.015em;
+    }
+    h3, h4{
+      font-family: 'Funnel Display', ui-sans-serif, system-ui, sans-serif;
+    }
+    .lead{
+      color:var(--muted);
+      font-size:15px;
+      line-height:1.6;
+      margin:0;
+    }
+    .feat-grid{
+      display:grid; gap:18px;
+      grid-template-columns: 1fr;
+    }
+    @media (min-width:720px){ .feat-grid{grid-template-columns: repeat(2, 1fr)} }
+    @media (min-width:1020px){ .feat-grid{grid-template-columns: repeat(3, 1fr)} }
+    
+    /* Job List */
+    .job-list{
+      display:flex;
+      flex-direction:column;
+    }
+    .job-item{
+      display:grid;
+      grid-template-columns:380px 1fr auto;
+      align-items:center;
+      gap:32px;
+      min-height:96px;
+      padding:20px 0;
+      border-bottom:1px solid var(--border);
+    }
+    .job-left{
+      display:flex;
+      flex-direction:column;
+      gap:4px;
+    }
+    .job-title{
+      font-size:15px;
+      font-weight:600;
+      color:var(--text);
+    }
+    .job-meta{
+      font-size:12px;
+      font-weight:400;
+      font-family: 'Geist Mono', monospace;
+      color:var(--muted);
+      opacity:0.7;
+      text-transform:uppercase;
+      letter-spacing:0.5px;
+      margin-top:2px;
+    }
+    .job-info{
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+      align-items:flex-start;
+    }
+    .job-info-item{
+      display:flex;
+      align-items:center;
+      gap:8px;
+      font-size:13px;
+      color:var(--muted);
+    }
+    .job-info-item svg{
+      width:12px;
+      height:12px;
+      fill:none;
+      stroke:var(--accent);
+      stroke-width:2.5px;
+      flex-shrink:0;
+    }
+    .job-apply{
+      padding:10px 24px;
+      border-radius:var(--radius);
+      border:1px solid rgba(27,94,32,.35);
+      background:linear-gradient(135deg, rgba(27,94,32,.95), rgba(46,125,50,.95));
+      color:white;
+      font-family:'DM Sans', ui-sans-serif, system-ui, sans-serif;
+      font-size:13px;
+      font-weight:500;
+      cursor:pointer;
+      transition:transform .15s ease, box-shadow .15s ease;
+      flex-shrink:0;
+      white-space:nowrap;
+      box-shadow: 0 14px 34px rgba(27,94,32,.22), inset 0 -12px 20px rgba(255,255,255,.18);
+      position:relative;
+      overflow:hidden;
+    }
+    .job-apply::before{
+      content:'';
+      position:absolute;
+      top:-50%;
+      left:-50%;
+      width:200%;
+      height:200%;
+      background:linear-gradient(
+        45deg,
+        transparent 30%,
+        rgba(255,255,255,0.3) 50%,
+        transparent 70%
+      );
+      transform:translateX(-100%) translateY(-100%) rotate(45deg);
+      animation:shimmer 5s infinite;
+    }
+    .job-apply:hover{
+      transform:translateY(-1px);
+      box-shadow:0 18px 44px rgba(27,94,32,.26), inset 0 -12px 20px rgba(255,255,255,.18);
+    }
+    }
+    
+    .card{
+      border:1px solid var(--border);
+      border-radius: var(--radius);
+      background:rgba(255,255,255,.7);
+      padding:18px;
+    }
+    .card-icon{
+      width:44px; height:44px; border-radius:var(--radius);
+      background:linear-gradient(135deg, rgba(29,78,216,.08), rgba(14,165,233,.08));
+      border:1px solid var(--border);
+      display:flex; align-items:center; justify-content:center;
+      margin-bottom:12px;
+    }
+    .card-icon svg{width:20px; height:20px; fill:var(--accent)}
+    .card h3{
+      font-size:15px; margin:0 0 8px; font-weight:700;
+    }
+    .card p{
+      margin:0; font-size:14px; line-height:1.6; color:var(--muted);
+    }
+
+    /* Timeline */
+    .timeline{padding:68px 0 60px}
+    .timeline-grid{display:grid; gap:14px}
+    .timeline-item{
+      display:grid; gap:14px;
+      grid-template-columns: 38px 1fr;
+      align-items:start;
+    }
+    .timeline-num{
+      width:38px; height:38px; border-radius:var(--radius);
+      border:1px solid var(--border);
+      background:linear-gradient(135deg, rgba(29,78,216,.08), rgba(14,165,233,.08));
+      display:flex; align-items:center; justify-content:center;
+      font-weight:750; color:var(--text); font-size:15px;
+    }
+    .timeline-content h4{
+      font-size:15px; margin:0 0 8px; font-weight:700;
+    }
+    .timeline-content p{
+      margin:0; font-size:14px; line-height:1.6; color:var(--muted);
+    }
+
+    /* Quotes Carousel */
+    .quotes-wrapper{
+      position:relative;
+      max-width:var(--max);
+      margin:0 auto;
+    }
+    .quotes-carousel{
+      position:relative;
+      overflow:hidden;
+    }
+    .quotes-track{
+      display:flex;
+      transition:transform 0.5s ease;
+      gap:20px;
+    }
+    .quotes-set{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:24px;
+      min-width:100%;
+      flex-shrink:0;
+    }
+    .quote{
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+      padding:24px 20px;
+      border:none;
+      border-radius:var(--radius);
+      background:#ededed;
+      aspect-ratio:1/1;
+    }
+    .qtext{
+      margin:0;
+      font-size:14px;
+      line-height:1.55;
+      color:var(--text);
+      font-style:italic;
+      flex:1;
+    }
+    .qmeta{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      font-size:12px;
+      color:var(--muted);
+      margin-top:auto;
+    }
+    .carousel-nav{
+      display:flex;
+      gap:16px;
+      justify-content:center;
+      margin-top:32px;
+    }
+    .carousel-arrow{
+      width:44px;
+      height:44px;
+      border-radius:999px;
+      border:1px solid var(--border);
+      background:white;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      cursor:pointer;
+      transition:all 0.2s ease;
+    }
+    .carousel-arrow:hover{
+      background:var(--surface);
+      transform:translateY(-2px);
+    }
+    .carousel-arrow:disabled{
+      opacity:0.3;
+      cursor:not-allowed;
+      pointer-events:none;
+    }
+    .carousel-arrow svg{
+      width:20px;
+      height:20px;
+      stroke:var(--text);
+      stroke-width:2;
+      fill:none;
+    }
+    @media (max-width:920px){
+      .quotes-set{
+        grid-template-columns:1fr;
+      }
+    }
+
+    /* Final CTA */
+    .final{padding:88px 0 44px}
+    .cta-box{
+      border:1px solid var(--border);
+      border-radius: var(--radius2);
+      background:linear-gradient(180deg, rgba(255,255,255,.85), rgba(255,255,255,.6));
+      box-shadow: var(--shadow);
+      padding:28px;
+      display:grid; gap:28px;
+    }
+    @media (min-width:960px){
+      .cta-box{grid-template-columns: 1.1fr .9fr; gap:32px}
+    }
+    .cta-feats{display:flex; gap:10px; flex-wrap:wrap; margin-top:12px}
+    
+    /* Calendly responsive */
+    .calendly-inline-widget{
+      width:100%;
+      min-width:320px;
+      height:850px;
+      border-radius:var(--radius2);
+      overflow:hidden;
+    }
+    @media (min-width:600px){
+      .calendly-inline-widget{height:750px}
+    }
+    @media (min-width:900px){
+      .calendly-inline-widget{height:700px}
+    }
+
+    /* Form */
+    .form-grid{display:grid; gap:14px}
+    label{
+      display:block; font-size:13px; font-weight:600; margin-bottom:6px; color:var(--text);
+    }
+    input, select, textarea{
+      width:100%; border:1px solid var(--border);
+      border-radius:var(--radius); padding:10px 12px;
+      font:inherit; font-size:14px; color:var(--text);
+      background:rgba(255,255,255,.9);
+      transition:border-color .15s ease;
+    }
+    input:focus, select:focus, textarea:focus{
+      outline:none; border-color:var(--accent);
+    }
+    textarea{resize:vertical; min-height:80px}
+    .row2{display:grid; gap:14px}
+    @media (min-width:640px){ .row2{grid-template-columns: 1fr 1fr} }
+    .form-actions{display:flex; gap:10px; flex-wrap:wrap}
+    .divider{height:1px; background:var(--border); margin:6px 0}
+    .fineprint{font-size:12px; color:var(--muted); line-height:1.5}
+
+    /* Footer */
+    footer{
+      background:#FFFFFF;
+      padding:22px 0;
+      border-top:1px solid var(--border);
+      opacity:1 !important;
+      transform:none !important;
+    }
+    .foot{
+      display:flex; gap:14px; flex-wrap:wrap; justify-content:center;
+      align-items:center; font-size:13px; color:var(--muted);
+      text-align:center;
+    }
+    .foot a{transition:color .15s ease}
+    .foot a:hover{color:var(--text)}
+
+    /* Vertical separator lines – only inside main */
+    main{
+      position:relative;
+    }
+    main::before,
+    main::after{
+      content:'';
+      position:absolute;
+      top:0;
+      bottom:0;
+      width:1px;
+      background:var(--border);
+      z-index:30;
+      pointer-events:none;
+    }
+    main::before{
+      left:calc(50% - var(--max)/2 - 40px);
+    }
+    main::after{
+      right:calc(50% - var(--max)/2 - 40px);
+    }
+    @media (max-width:1200px){
+      main::before{
+        left:0;
+      }
+      main::after{
+        right:0;
+      }
+    }
+
+    /* Modal */
+    .modal-backdrop{
+      display:none; position:fixed; top:0; left:0; right:0; bottom:0;
+      background:rgba(11, 18, 32, .5); backdrop-filter:blur(8px);
+      z-index:999; align-items:center; justify-content:center;
+      padding:22px;
+    }
+    .modal{
+      border:1px solid var(--border);
+      border-radius: var(--radius2);
+      background:white;
+      box-shadow: var(--shadow2);
+      max-width:620px; width:100%;
+      max-height:90vh; overflow:auto;
+    }
+    .modal-head{
+      padding:18px 22px; border-bottom:1px solid var(--border);
+      display:flex; align-items:center; justify-content:space-between;
+      font-weight:700; font-size:15px;
+    }
+    .close{
+      cursor:pointer; width:28px; height:28px; border-radius:var(--radius);
+      display:flex; align-items:center; justify-content:center;
+      transition:background .15s ease;
+    }
+    .close:hover{background:var(--surface)}
+    .modal-body{padding:22px}
+    .cal-placeholder{
+      border:1px dashed var(--border);
+      border-radius: var(--radius);
+      background:var(--surface2);
+      padding:24px;
+      text-align:center;
+      color:var(--muted);
+      font-size:14px; line-height:1.6;
+    }
+    .cal-placeholder strong{display:block; color:var(--text); margin-bottom:8px}
+
+    /* Floating circle CTA */
+    @keyframes liquid{
+      0%, 100%{border-radius:50% 48% 52% 50% / 48% 50% 50% 52%}
+      25%{border-radius:48% 52% 50% 50% / 52% 48% 52% 48%}
+      50%{border-radius:52% 50% 48% 52% / 50% 52% 48% 50%}
+      75%{border-radius:50% 48% 52% 48% / 48% 52% 50% 52%}
+    }
+    @keyframes pulse{
+      0%{opacity:0; transform:scale(1)}
+      5%{opacity:0.25; transform:scale(1.3)}
+      10%{opacity:0; transform:scale(1.8)}
+      100%{opacity:0; transform:scale(1)}
+    }
+    @keyframes dotPulse{
+      0%,100%{transform:scale(1); opacity:0}
+      50%{transform:scale(2.2); opacity:0.35}
+    }
+    
+    /* Testimonials responsive */
+    .testimonial-box{
+      background:#ededed;
+      border-radius:var(--radius);
+      aspect-ratio:3/4;
+      min-width:calc((100% - 48px) / 3);
+      width:calc((100% - 48px) / 3);
+      padding:28px 24px;
+      display:flex;
+      flex-direction:column;
+      gap:20px;
+    }
+    @media (max-width:920px){
+      /* Infographic: vertical timeline on mobile */
+      .infographic-grid{
+        grid-template-columns:1fr !important;
+        gap:0 !important;
+      }
+      .infographic-line{
+        display:none !important;
+      }
+      .infographic-step{
+        flex-direction:row !important;
+        align-items:flex-start !important;
+        text-align:left !important;
+        gap:0 !important;
+        padding-bottom:0 !important;
+        position:relative !important;
+      }
+      /* Number circle column with progress bar */
+      .infographic-step > div:first-child{
+        width:48px !important;
+        height:48px !important;
+        min-width:48px !important;
+        font-size:18px !important;
+        flex-shrink:0 !important;
+        box-shadow:0 2px 8px rgba(34,139,34,.2) !important;
+        position:relative !important;
+        z-index:2 !important;
+      }
+      /* Vertical progress bar between circles (with gap to circles) */
+      .infographic-step:not(:last-child)::after{
+        content:'';
+        position:absolute;
+        left:23px;
+        top:56px;
+        bottom:8px;
+        width:2px;
+        background:linear-gradient(180deg, #228B22, #4CAF50);
+        background-size:200% 200%;
+        z-index:1;
+      }
+      /* Animate progress bars when visible */
+      .infographic-step.in-view:not(:last-child)::after{
+        animation:progressGrow 1.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+      }
+      @keyframes progressGrow{
+        from{transform:scaleY(0); transform-origin:top}
+        to{transform:scaleY(1); transform-origin:top}
+      }
+      /* Card: no border, no background, grid layout for icon+title row */
+      .infographic-step > div:last-child{
+        border:none !important;
+        background:none !important;
+        box-shadow:none !important;
+        padding:4px 0 32px 20px !important;
+        margin-top:0 !important;
+        border-radius:0 !important;
+        display:grid !important;
+        grid-template-columns:40px 1fr;
+        grid-template-rows:auto auto;
+        column-gap:12px;
+        row-gap:12px;
+        align-items:center;
+      }
+      /* Icon: first column, first row */
+      .infographic-step > div:last-child > div:first-child{
+        margin:0 !important;
+        grid-column:1;
+        grid-row:1;
+      }
+      /* Title: second column, first row (next to icon) */
+      .infographic-step > div:last-child > h4{
+        grid-column:2;
+        grid-row:1;
+        margin:0 !important;
+      }
+      /* Description: spans both columns */
+      .infographic-step > div:last-child > p{
+        grid-column:1 / -1;
+        grid-row:2;
+      }
+      /* Separator line between steps */
+      .infographic-step:not(:last-child) > div:last-child{
+        border-bottom:1px solid var(--border) !important;
+        padding-bottom:32px !important;
+        margin-bottom:32px !important;
+      }
+      /* Testimonials: stack vertically */
+      .testimonial-box{
+        min-width:100%;
+        width:100%;
+        aspect-ratio:auto;
+      }
+      #testimonialTrack{
+        flex-direction:column !important;
+        transform:none !important;
+        gap:16px !important;
+      }
+      /* Job Items responsive */
+      .job-item{
+        grid-template-columns:1fr;
+        gap:16px;
+        padding:24px 0;
+      }
+      .job-info{
+        order:2;
+        flex-direction:row;
+        gap:16px;
+        margin-bottom:16px;
+      }
+      .job-apply{
+        order:3;
+        width:100%;
+        justify-self:stretch;
+      }
+      /* Final CTA headline same size as h2 */
+      .final h3{
+        font-size:clamp(26px, 3.1vw, 38px) !important;
+      }
+      /* Abstände */
+      #jobs{
+        padding-top:80px !important;
+      }
+      .final{
+        padding-top:48px !important;
+      }
+    }
+
+    /* Mobile: Benefits untereinander */
+    @media (max-width: 768px) {
+      .features .section-head h2,
+      #jobs .section-head h2 {
+        font-size: 28px !important;
+        margin-bottom: 16px !important;
+      }
+      
+      .features > .container > div[style*="grid-template-columns"] {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 0 !important;
+      }
+      
+      .features > .container > div[style*="grid-template-columns"] > div {
+        padding: 32px 0 32px 0 !important;
+        border-right: none !important;
+        border-bottom: 1px solid rgba(0,0,0,0.1) !important;
+        border-top: none !important;
+      }
+      
+      .features > .container > div[style*="grid-template-columns"] > div:first-child {
+        padding-top: 0 !important;
+      }
+      
+      .features > .container > div[style*="grid-template-columns"] > div:last-child {
+        border-bottom: none !important;
+        padding-bottom: 0 !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="#" class="brand">
+          <img src="https://kreaktivmoebel.de/wp-content/uploads/2024/02/logoRGB_72ppi_Web.png" alt="Kreaktiv Möbel" style="height:40px; width:auto;">
+        </a>
+        <div class="header-cta">
+          <div class="microtrust">kostenlos & unverbindlich</div>
+          <button class="btn primary" style="padding:8px 16px;" data-scroll="#final">Termin buchen</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-grid">
+          <div>
+            <div style="display:inline-flex; align-items:center; gap:8px; font-size:13px; color:var(--muted); text-decoration:underline; text-decoration-style:dotted; text-underline-offset:4px; text-decoration-color:rgba(0,0,0,0.15);">
+              <span class="dot" aria-hidden="true"></span>
+              <span>Über 100 Handwerker arbeiten bereits mit uns zusammen</span>
+            </div>
+            <h1>
+              <span><span class="hero-word" style="animation-delay:.1s">Die</span> <span class="hero-word" style="animation-delay:.2s">All-in-One</span> <span class="hero-word" style="animation-delay:.3s">Lösung</span></span>
+              <span><span class="hero-word" style="animation-delay:.4s">für</span> <span class="hero-word gradient-text" style="animation-delay:.5s">Handwerker</span></span>
+              <span><span class="hero-word gradient-text" style="animation-delay:.6s">in</span> <span class="hero-word gradient-text" style="animation-delay:.7s">Berlin</span></span>
+            </h1>
+            <p class="subhead">
+              Möbelteile nach Maß, Zuschnitt, Kante, Bohrungen und Beschläge. Du bekommst alles aus einer Hand, schnell und zuverlässig, auch wenn du erst auf der Baustelle merkst, was fehlt.
+            </p>
+
+            <div class="bullets">
+              <div class="bullet">
+                <div class="check">
+                  <svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg>
+                </div>
+                <div>Maßgenauer Zuschnitt und Kantenbearbeitung</div>
+              </div>
+              <div class="bullet">
+                <div class="check">
+                  <svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg>
+                </div>
+                <div>Kostenfreie Nutzung unseres Showrooms für deine Kunden</div>
+              </div>
+            </div>
+
+            <div class="hero-actions">
+              <button class="btn primary" data-scroll="#final">Kennenlerngespräch buchen <svg style="width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+            </div>
+          </div>
+
+          <div class="hero-card">
+            <div class="hero-visual" style="background-image:url('Foto2.jpeg'); background-size:cover; background-position:center;">
+              <div class="hero-credit">
+                <div class="credit-name">Oleg Gorceac</div>
+                <div class="credit-title">Geschäftsführer KREAKTIVMÖBEL</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Proof -->
+    <section class="proof">
+      <div class="container">
+        <div class="proofbar">
+          <div style="text-align:center; width:100%; padding:36px 0">
+            <p style="margin:0; font-size:15px; line-height:2; color:var(--text); font-family:'Funnel Display', ui-sans-serif, system-ui, sans-serif; text-decoration:underline; text-decoration-style:dotted; text-underline-offset:4px; text-decoration-color:rgba(0,0,0,0.15); max-width:700px; margin:0 auto;">
+              Handwerker sollen sich auf ihr Handwerk konzentrieren. Wir kümmern uns um Material, Zuschnitt und alles drum herum, damit Aufträge sauber laufen und Kunden zufrieden sind.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div style="position:relative;">
+      <div style="position:absolute; left:calc(50% - 50vw); width:100vw; height:1px; background:var(--border);"></div>
+    </div>
+
+    <!-- Was Dich erwartet -->
+    <section class="features" style="padding-top:60px; padding-bottom:40px;">
+      <div class="container">
+        <div class="section-head" style="text-align:left;">
+          <h2 style="font-size:32px; margin-bottom:16px; display:inline-flex; align-items:center; gap:14px;">
+            <span style="position:relative; width:10px; height:10px;">
+              <span style="position:absolute; width:10px; height:10px; border-radius:999px; background:#228B22; opacity:1;"></span>
+              <span style="position:absolute; width:10px; height:10px; border-radius:999px; background:#228B22; animation:dotPulse 3s ease-in-out infinite;"></span>
+            </span>
+            Was Dich erwartet
+          </h2>
+        </div>
+
+        <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:0;">
+
+          <!-- Item 1 -->
+          <div style="display:flex; flex-direction:column; gap:24px; padding:0 32px 40px 0; border-right:1px solid rgba(0,0,0,0.1); border-bottom:1px solid rgba(0,0,0,0.1);">
+            <div style="width:36px; height:36px; border-radius:var(--radius); background:rgba(34,139,34,.12); display:flex; align-items:center; justify-content:center;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#228B22" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z"/>
+              </svg>
+            </div>
+            <div>
+              <h4 style="font-size:16px; letter-spacing:-0.02px; margin:0 0 8px 0; font-weight:600; line-height:1.3; min-height:auto; display:flex; align-items:start; font-family:ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;">Du bleibst selbstständig</h4>
+              <p style="margin:0; font-size:14px; line-height:1.6; color:var(--muted);">Du führst dein Geschäft wie bisher, betreust deine Kunden und kalkulierst deine Aufträge selbst. Wir liefern dir im Hintergrund Zuschnitte, Kanten, Zubehör und Anpassungen, damit du dich auf dein Handwerk konzentrieren kannst.</p>
+            </div>
+          </div>
+
+          <!-- Item 2 -->
+          <div style="display:flex; flex-direction:column; gap:24px; padding:0 32px 40px 32px; border-right:1px solid rgba(0,0,0,0.1); border-bottom:1px solid rgba(0,0,0,0.1);">
+            <div style="width:36px; height:36px; border-radius:var(--radius); background:rgba(34,139,34,.12); display:flex; align-items:center; justify-content:center;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#228B22" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6A2.25 2.25 0 0 1 6 3.75h2.25A2.25 2.25 0 0 1 10.5 6v2.25a2.25 2.25 0 0 1-2.25 2.25H6a2.25 2.25 0 0 1-2.25-2.25V6ZM3.75 15.75A2.25 2.25 0 0 1 6 13.5h2.25a2.25 2.25 0 0 1 2.25 2.25V18a2.25 2.25 0 0 1-2.25 2.25H6A2.25 2.25 0 0 1 3.75 18v-2.25ZM13.5 6a2.25 2.25 0 0 1 2.25-2.25H18A2.25 2.25 0 0 1 20.25 6v2.25A2.25 2.25 0 0 1 18 10.5h-2.25a2.25 2.25 0 0 1-2.25-2.25V6ZM13.5 15.75a2.25 2.25 0 0 1 2.25-2.25H18a2.25 2.25 0 0 1 2.25 2.25V18A2.25 2.25 0 0 1 18 20.25h-2.25a2.25 2.25 0 0 1-2.25-2.25v-2.25Z"/>
+              </svg>
+            </div>
+            <div>
+              <h4 style="font-size:16px; letter-spacing:-0.02px; margin:0 0 8px 0; font-weight:600; line-height:1.3; min-height:auto; display:flex; align-items:start; font-family:ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;">Alles an einem Ort</h4>
+              <p style="margin:0; font-size:14px; line-height:1.6; color:var(--muted);">MDF, Spanplatten, Fronten, Zuschnitt, Kanten, Bohrungen, Beschläge und Zubehör. Kein Wechsel zwischen mehreren Anbietern. Kein Zeitverlust.</p>
+            </div>
+          </div>
+
+          <!-- Item 3 -->
+          <div style="display:flex; flex-direction:column; gap:24px; padding:0 0 40px 32px; border-bottom:1px solid rgba(0,0,0,0.1);">
+            <div style="width:36px; height:36px; border-radius:var(--radius); background:rgba(34,139,34,.12); display:flex; align-items:center; justify-content:center;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#228B22" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+              </svg>
+            </div>
+            <div>
+              <h4 style="font-size:16px; letter-spacing:-0.02px; margin:0 0 8px 0; font-weight:600; line-height:1.3; min-height:auto; display:flex; align-items:start; font-family:ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;">Preise auf IKEA-Niveau</h4>
+              <p style="margin:0; font-size:14px; line-height:1.6; color:var(--muted);">Unsere Preise bewegen sich auf dem Niveau großer Anbieter wie IKEA. Der Unterschied: Du bekommst deine Maße, deine Farben und deine Lösung: Nicht von der Stange.</p>
+            </div>
+          </div>
+
+          <!-- Item 4 -->
+          <div style="display:flex; flex-direction:column; gap:24px; padding:40px 32px 0 0; border-right:1px solid rgba(0,0,0,0.1);">
+            <div style="width:36px; height:36px; border-radius:var(--radius); background:rgba(34,139,34,.12); display:flex; align-items:center; justify-content:center;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#228B22" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m20.25 7.5-.625 10.632a2.25 2.25 0 0 1-2.247 2.118H6.622a2.25 2.25 0 0 1-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z"/>
+              </svg>
+            </div>
+            <div>
+              <h4 style="font-size:16px; letter-spacing:-0.02px; margin:0 0 8px 0; font-weight:600; line-height:1.3; min-height:auto; display:flex; align-items:start; font-family:ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;">Über 2500 Zubehörteile sofort verfügbar</h4>
+              <p style="margin:0; font-size:14px; line-height:1.6; color:var(--muted);">Scharniere, Schrauben, Beschläge und Kleinteile direkt vor Ort. Kein Projektstopp wegen fehlender Einzelteile.</p>
+            </div>
+          </div>
+
+          <!-- Item 5 -->
+          <div style="display:flex; flex-direction:column; gap:24px; padding:40px 32px 0 32px; border-right:1px solid rgba(0,0,0,0.1);">
+            <div style="width:36px; height:36px; border-radius:var(--radius); background:rgba(34,139,34,.12); display:flex; align-items:center; justify-content:center;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#228B22" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 0 1-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 0 1 4.5 0m0 0v5.714a2.25 2.25 0 0 0 .659 1.591L19 14.5M14.25 3.104c.251.023.501.05.75.082M19 14.5l-1.482 5.928A2.25 2.25 0 0 1 15.335 22H8.665a2.25 2.25 0 0 1-2.183-1.572L5 14.5m14 0H5"/>
+              </svg>
+            </div>
+            <div>
+              <h4 style="font-size:16px; letter-spacing:-0.02px; margin:0 0 8px 0; font-weight:600; line-height:1.3; min-height:auto; display:flex; align-items:start; font-family:ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;">Maßgenaue Zuschnitte & saubere Kanten</h4>
+              <p style="margin:0; font-size:14px; line-height:1.6; color:var(--muted);">Exakt nach deinen Maßen gefertigt. Auch Sondermaße und kurzfristige Anpassungen sind möglich.</p>
+            </div>
+          </div>
+
+          <!-- Item 6 -->
+          <div style="display:flex; flex-direction:column; gap:24px; padding:40px 0 0 32px;">
+            <div style="width:36px; height:36px; border-radius:var(--radius); background:rgba(34,139,34,.12); display:flex; align-items:center; justify-content:center;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#228B22" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 21v-7.5a.75.75 0 0 1 .75-.75h3a.75.75 0 0 1 .75.75V21m-4.5 0H2.36m11.14 0H18m0 0h3.64m-1.39 0V9.349M3.75 21V9.349m0 0a3.001 3.001 0 0 0 3.75-.615A2.993 2.993 0 0 0 9.75 9.75c.896 0 1.7-.393 2.25-1.016a2.993 2.993 0 0 0 2.25 1.016c.896 0 1.7-.393 2.25-1.015a3.001 3.001 0 0 0 3.75.614m-16.5 0a3.004 3.004 0 0 1-.621-4.72l1.189-1.19A1.5 1.5 0 0 1 5.378 3h13.243a1.5 1.5 0 0 1 1.06.44l1.19 1.189a3 3 0 0 1-.621 4.72M6.75 18h3.75a.75.75 0 0 0 .75-.75V13.5a.75.75 0 0 0-.75-.75H6.75a.75.75 0 0 0-.75.75v3.75c0 .414.336.75.75.75Z"/>
+              </svg>
+            </div>
+            <div>
+              <h4 style="font-size:16px; letter-spacing:-0.02px; margin:0 0 8px 0; font-weight:600; line-height:1.3; min-height:auto; display:flex; align-items:start; font-family:ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;">Showroom für deine Kunden</h4>
+              <p style="margin:0; font-size:14px; line-height:1.6; color:var(--muted);">Nutze unseren Showroom, um Materialien und Fronten professionell zu präsentieren. Du bleibst Ansprechpartner für deine Kunden und kannst den Showroom als deinen Showroom präsentieren.</p>
+            </div>
+          </div>
+
+        </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Zusammenarbeit Infographic -->
+    <section class="timeline">
+      <div class="container">
+        <div style="text-align:center; margin-bottom:56px;">
+          <h2 style="font-size:32px; margin:0 0 12px 0;">So funktioniert die Zusammenarbeit</h2>
+          <p style="margin:0; font-size:15px; color:var(--muted);">In drei einfachen Schritten zum fertigen Projekt</p>
+        </div>
+
+        <div class="infographic-grid" style="display:grid; grid-template-columns:repeat(3, 1fr); gap:32px; position:relative;">
+
+          <!-- Horizontal connector line -->
+          <div class="infographic-line" style="position:absolute; top:36px; left:calc(16.66% + 36px); right:calc(16.66% + 36px); height:2px; background:linear-gradient(90deg, #228B22, #4CAF50); z-index:0;"></div>
+
+          <!-- Step 1 -->
+          <div class="infographic-step" style="display:flex; flex-direction:column; align-items:center; text-align:center; position:relative; z-index:1;">
+            <div style="width:72px; height:72px; border-radius:999px; background:linear-gradient(135deg, #1B5E20, #2E7D32); color:white; display:flex; align-items:center; justify-content:center; font-size:26px; font-weight:700; font-family:'Funnel Display', ui-sans-serif, system-ui, sans-serif; flex-shrink:0; box-shadow:0 4px 16px rgba(34,139,34,.25), 0 0 0 6px rgba(34,139,34,.08);">1</div>
+            <div style="background:var(--bg); border:1px solid var(--border); border-radius:var(--radius); padding:28px 24px 24px; margin-top:24px; flex:1; width:100%;">
+              <div style="width:40px; height:40px; border-radius:var(--radius); background:rgba(34,139,34,.08); display:flex; align-items:center; justify-content:center; margin:0 auto 16px;">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#228B22" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 0 0 2.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 0 0-6.548 0c-1.131.094-1.976 1.057-1.976 2.192V16.5A2.25 2.25 0 0 0 12 18.75h.75m0 0h3.75m-3.75 0v3m3.75-3v3m-7.5-6h.008v.008H5.25V15.75Zm0-3h.008v.008H5.25V12.75Zm0-3h.008v.008H5.25V9.75Z"/></svg>
+              </div>
+              <h4 style="font-size:16px; font-weight:600; margin:0 0 8px 0; line-height:1.3; font-family:ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;">Du planst dein Projekt</h4>
+              <p style="margin:0; font-size:14px; line-height:1.6; color:var(--muted);">Miss aus, kalkuliere und plane wie gewohnt. Sobald du weißt, was du brauchst, gibst du die Bestellung bei uns auf.</p>
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="infographic-step" style="display:flex; flex-direction:column; align-items:center; text-align:center; position:relative; z-index:1;">
+            <div style="width:72px; height:72px; border-radius:999px; background:linear-gradient(135deg, #1B5E20, #2E7D32); color:white; display:flex; align-items:center; justify-content:center; font-size:26px; font-weight:700; font-family:'Funnel Display', ui-sans-serif, system-ui, sans-serif; flex-shrink:0; box-shadow:0 4px 16px rgba(34,139,34,.25), 0 0 0 6px rgba(34,139,34,.08);">2</div>
+            <div style="background:var(--bg); border:1px solid var(--border); border-radius:var(--radius); padding:28px 24px 24px; margin-top:24px; flex:1; width:100%;">
+              <div style="width:40px; height:40px; border-radius:var(--radius); background:rgba(34,139,34,.08); display:flex; align-items:center; justify-content:center; margin:0 auto 16px;">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#228B22" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 18.75a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 0 1-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 0 0-3.213-9.193 2.056 2.056 0 0 0-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 0 0-10.026 0 1.106 1.106 0 0 0-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12"/></svg>
+              </div>
+              <h4 style="font-size:16px; font-weight:600; margin:0 0 8px 0; line-height:1.3; font-family:ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;">Wir fertigen & liefern</h4>
+              <p style="margin:0; font-size:14px; line-height:1.6; color:var(--muted);">Zuschnitt, Kanten, Bohrungen, Beschläge und Zubehör – alles wird nach deinen Angaben vorbereitet und termingerecht geliefert.</p>
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="infographic-step" style="display:flex; flex-direction:column; align-items:center; text-align:center; position:relative; z-index:1;">
+            <div style="width:72px; height:72px; border-radius:999px; background:linear-gradient(135deg, #1B5E20, #2E7D32); color:white; display:flex; align-items:center; justify-content:center; font-size:26px; font-weight:700; font-family:'Funnel Display', ui-sans-serif, system-ui, sans-serif; flex-shrink:0; box-shadow:0 4px 16px rgba(34,139,34,.25), 0 0 0 6px rgba(34,139,34,.08);">3</div>
+            <div style="background:var(--bg); border:1px solid var(--border); border-radius:var(--radius); padding:28px 24px 24px; margin-top:24px; flex:1; width:100%;">
+              <div style="width:40px; height:40px; border-radius:var(--radius); background:rgba(34,139,34,.08); display:flex; align-items:center; justify-content:center; margin:0 auto 16px;">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#228B22" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17 17.25 21A2.652 2.652 0 0 0 21 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 1 1-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 0 0 4.486-6.336l-3.276 3.277a3.004 3.004 0 0 1-2.25-2.25l3.276-3.276a4.5 4.5 0 0 0-6.336 4.486c.049.58.025 1.193-.14 1.743"/></svg>
+              </div>
+              <h4 style="font-size:16px; font-weight:600; margin:0 0 8px 0; line-height:1.3; font-family:ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;">Du baust ein & begeisterst</h4>
+              <p style="margin:0; font-size:14px; line-height:1.6; color:var(--muted);">Du montierst beim Kunden, lieferst perfekte Ergebnisse ab und konzentrierst dich voll auf dein Handwerk.</p>
+            </div>
+          </div>
+
+        </div>
+
+        <div style="margin-top:48px; text-align:center;">
+          <button class="btn primary" data-scroll="#final">Kennenlerngespräch buchen <svg style="width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+        </div>
+      </div>
+    </section>
+    <div style="position:relative;">
+      <div style="position:absolute; left:calc(50% - 50vw); width:100vw; height:1px; background:var(--border);"></div>
+    </div>
+
+    <!-- Testimonials -->
+    <section class="features" style="padding-top:60px;">
+      <div class="container">
+        <div class="section-head" style="max-width:100%; text-align:center; margin-left:auto; margin-right:auto; margin-bottom:64px;">
+          <h2 style="font-size:32px;">Das sagen begeisterte Handwerker</h2>
+        </div>
+
+        <div class="container" style="position:relative; overflow:hidden;">
+          <div id="testimonialTrack" style="display:flex; gap:24px; transition:transform 0.5s ease;">
+
+            <!-- Testimonial 1 -->
+            <div class="testimonial-box">
+              <div style="display:flex; gap:12px; align-items:center;">
+                <img src="https://i.postimg.cc/CxsLrNhY/Marcel-Kramer.jpg" alt="Marcel Kramer" style="width:36px; height:36px; border-radius:999px; object-fit:cover; flex-shrink:0;">
+                <div>
+                  <div style="font-size:16px; font-weight:600; color:var(--text); line-height:1.3;">Marcel Kramer</div>
+                </div>
+              </div>
+
+              <div style="flex:1; display:flex; flex-direction:column; gap:12px; margin-top:8px;">
+                <h4 style="font-size:17px; margin:0; font-weight:600; line-height:1.3;">KREAKTIVMÖBEL ist unschlagbar</h4>
+                <p style="margin:0; font-size:14px; line-height:1.6; color:var(--text); opacity:0.75;">Früher bin ich wegen jedem fehlenden Teil nochmal zum Baumarkt gefahren. Das hat Zeit und Nerven gekostet. Bei KREAKTIVMÖBEL bekomme ich Zuschnitt, Kanten und Zubehör direkt aus einer Hand. Wenn auf der Baustelle etwas angepasst werden muss, fahre ich kurz vorbei und kann weitermachen. Das spart mir pro Auftrag mehrere Stunden</p>
+              </div>
+
+              <div style="font-family:'Fuggles', cursive; font-size:40px; color:var(--text); opacity:0.6;">M. Kramer</div>
+            </div>
+
+            <!-- Testimonial 2 -->
+            <div class="testimonial-box">
+              <div style="display:flex; gap:12px; align-items:center;">
+                <img src="https://i.postimg.cc/28FDCSsp/Piotr-Nowak.jpg" alt="Piotr Nowak" style="width:36px; height:36px; border-radius:999px; object-fit:cover; flex-shrink:0;">
+                <div>
+                  <div style="font-size:16px; font-weight:600; color:var(--text); line-height:1.3;">Piotr Nowak</div>
+                </div>
+              </div>
+
+              <div style="flex:1; display:flex; flex-direction:column; gap:12px; margin-top:8px;">
+                <h4 style="font-size:17px; margin:0; font-weight:600; line-height:1.3;">Der Showroom ist einfach genial!</h4>
+                <p style="margin:0; font-size:14px; line-height:1.6; color:var(--text); opacity:0.75;">Der Showroom bei KREAKTIVMÖBEL ist für mich etwas Besonderes. Ich kann meinen Kunden dort direkt zeigen, welche Fronten, Farben und andere Sachen möglich sind. Die Kunden sehen sofort, was am Ende wie aussieht. Das macht meine Arbeit professioneller und einfacher.</p>
+              </div>
+
+              <div style="font-family:'Fuggles', cursive; font-size:40px; color:var(--text); opacity:0.6;">P. Nowak</div>
+            </div>
+
+            <!-- Testimonial 3 -->
+            <div class="testimonial-box">
+              <div style="display:flex; gap:12px; align-items:center;">
+                <img src="https://i.postimg.cc/vB6JkYrP/Sergej-Ivanov.jpg" alt="Sergej Ivanov" style="width:36px; height:36px; border-radius:999px; object-fit:cover; flex-shrink:0;">
+                <div>
+                  <div style="font-size:16px; font-weight:600; color:var(--text); line-height:1.3;">Sergej Ivanov</div>
+                </div>
+              </div>
+
+              <div style="flex:1; display:flex; flex-direction:column; gap:12px; margin-top:8px;">
+                <h4 style="font-size:17px; margin:0; font-weight:600; line-height:1.3;">Reibungslose Zusammenarbeit und mega Konzept</h4>
+                <p style="margin:0; font-size:14px; line-height:1.6; color:var(--text); opacity:0.75;">Ich arbeite nicht mehr so viele Aufträge wie früher und möchte meine Zeit sinnvoll einsetzen. Für mich ist wichtig, dass ich nicht wegen jedem fehlenden Teil noch einmal losfahren muss. Bei KREAKTIVMÖBEL bekomme ich Zuschnitte, Kanten und Zubehör direkt vorbereitet. Wenn etwas angepasst werden muss, weiß ich, wo ich hingehen kann.</p>
+              </div>
+
+              <div style="font-family:'Fuggles', cursive; font-size:40px; color:var(--text); opacity:0.6;">S. Ivanov</div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final CTA + form -->
+    <section class="final" id="final">
+      <div class="container">
+        <div style="text-align:center; max-width:720px; margin:0 auto 16px">
+          <h3 style="margin:0; font-size:32px">Lass' uns in einem<br>Erstgespräch kennenlernen</h3>
+        </div>
+        
+        <div style="width:100%; max-width:var(--max); margin:0 auto;">
+          <div class="calendly-inline-widget" 
+               data-url="https://calendly.com/kreaktivmoebel-info/kennenlernen?embed_type=Inline">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="foot">
+        <div>© <span id="year"></span> KREAKTIVMÖBEL GmbH</div>
+        <span style="color:var(--border);">·</span>
+        <a href="https://kreaktivmoebel.de/impressum/" target="_blank" rel="noopener noreferrer">Impressum</a>
+        <span style="color:var(--border);">·</span>
+        <a href="https://kreaktivmoebel.de/datenschutzerklaerung/" target="_blank" rel="noopener noreferrer">Datenschutz</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modal: Calendly placeholder -->
+  <div class="modal-backdrop" id="modal" aria-hidden="true" role="dialog" aria-label="Kennenlerngespräch buchen">
+    <div class="modal">
+      <div class="modal-head">
+        <strong>Kennenlerngespräch buchen</strong>
+        <div class="close" data-close-modal aria-label="Schließen">✕</div>
+      </div>
+      <div class="modal-body">
+        <div class="cal-placeholder">
+          <strong>Calendly/Termin-Widget einbetten</strong><br/>
+          Ersetze diesen Block durch dein Embed (z. B. Calendly inline Widget oder ein iFrame).
+          <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap">
+            <button class="btn primary" type="button" data-scroll="#final" data-close-modal>Lieber schnell Interesse senden →</button>
+            <button class="btn" type="button" data-close-modal>Schließen</button>
+          </div>
+          <div class="fineprint" style="margin-top:12px">
+            Tipp: Im echten Funnel funktioniert „Inline Embed" im letzten CTA-Bereich oft besser als nur ein Modal.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script>
+    // Simple helpers
+    const $ = (sel, root=document) => root.querySelector(sel);
+    const $$ = (sel, root=document) => Array.from(root.querySelectorAll(sel));
+
+    // Year
+    $("#year").textContent = new Date().getFullYear();
+
+    // Smooth scroll with enhanced smoothness
+    $$("[data-scroll]").forEach(el => {
+      el.addEventListener("click", (e) => {
+        e.preventDefault();
+        const target = el.getAttribute("data-scroll");
+        if (!target) return;
+        const node = document.querySelector(target);
+        if (node) {
+          const start = window.pageYOffset;
+          const end = node.getBoundingClientRect().top + start;
+          const distance = end - start;
+          const duration = 1200;
+          let startTime = null;
+
+          function easeOutQuart(t) {
+            return 1 - Math.pow(1 - t, 4);
+          }
+
+          function step(now) {
+            if (!startTime) startTime = now;
+            const elapsed = now - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            window.scrollTo(0, start + distance * easeOutQuart(progress));
+            if (progress < 1) requestAnimationFrame(step);
+          }
+          requestAnimationFrame(step);
+
+          // Close modal if data-close-modal is present
+          if (el.hasAttribute("data-close-modal")) {
+            setTimeout(closeModal, 100);
+          }
+        }
+      });
+    });
+
+    // Modal open/close
+    const modal = $("#modal");
+    const openModal = () => {
+      modal.style.display = "flex";
+      modal.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+    };
+    const closeModal = () => {
+      modal.style.display = "none";
+      modal.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+    };
+
+    $$("[data-open-modal]").forEach(btn => btn.addEventListener("click", openModal));
+    $$("[data-close-modal]").forEach(btn => btn.addEventListener("click", closeModal));
+    modal.addEventListener("click", (e) => { if (e.target === modal) closeModal(); });
+    window.addEventListener("keydown", (e) => { if (e.key === "Escape" && modal.style.display === "flex") closeModal(); });
+
+    // Testimonial Carousel
+    const testimonialTrack = $("#testimonialTrack");
+    const testimonialPrev = $("#testimonialPrev");
+    const testimonialNext = $("#testimonialNext");
+    let currentPosition = 0;
+
+    function updateTestimonials() {
+      const boxes = testimonialTrack.children;
+      if (boxes.length === 0) return;
+      
+      // Check if mobile (under 920px)
+      const isMobile = window.innerWidth <= 920;
+      const maxPosition = isMobile ? boxes.length - 1 : 1;
+      
+      // Hole die Breite der ersten Box + Gap
+      const boxWidth = boxes[0].offsetWidth;
+      const gap = isMobile ? 16 : 24;
+      const offset = currentPosition * (boxWidth + gap);
+      
+      testimonialTrack.style.transform = `translateX(-${offset}px)`;
+      
+      // Button States
+      testimonialPrev.style.opacity = currentPosition === 0 ? '0.3' : '1';
+      testimonialPrev.style.cursor = currentPosition === 0 ? 'not-allowed' : 'pointer';
+      testimonialNext.style.opacity = currentPosition === maxPosition ? '0.3' : '1';
+      testimonialNext.style.cursor = currentPosition === maxPosition ? 'not-allowed' : 'pointer';
+    }
+
+    testimonialPrev.addEventListener("click", () => {
+      if (currentPosition > 0) {
+        currentPosition--;
+        updateTestimonials();
+      }
+    });
+
+    testimonialNext.addEventListener("click", () => {
+      const isMobile = window.innerWidth <= 920;
+      const boxes = testimonialTrack.children;
+      const maxPosition = isMobile ? boxes.length - 1 : 1;
+      
+      if (currentPosition < maxPosition) {
+        currentPosition++;
+        updateTestimonials();
+      }
+    });
+
+    // Initial state
+    setTimeout(updateTestimonials, 100);
+    
+    // Update on window resize and reset position if needed
+    window.addEventListener("resize", () => {
+      const isMobile = window.innerWidth <= 920;
+      const boxes = testimonialTrack.children;
+      const maxPosition = isMobile ? boxes.length - 1 : 1;
+      if (currentPosition > maxPosition) {
+        currentPosition = maxPosition;
+      }
+      updateTestimonials();
+    });
+
+  </script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Hero headline uses CSS-only line-by-line animation
+
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -100px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, observerOptions);
+
+  // Animate sections, but exclude testimonials section to avoid conflicts
+  document.querySelectorAll('main section:not(.hero):not(.proof)').forEach((section, idx) => {
+    // Skip section if it contains testimonialTrack
+    if (section.querySelector('#testimonialTrack')) {
+      return;
+    }
+    section.style.opacity = '0';
+    section.style.transform = 'translateY(30px)';
+    section.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+    observer.observe(section);
+  });
+
+  // Animate benefits and job items
+  document.querySelectorAll('.features .job-item, .features > div > div > div').forEach((item, idx) => {
+    item.style.opacity = '0';
+    item.style.transform = 'translateY(20px)';
+    item.style.transition = 'opacity 0.6s ease ' + (idx * 0.1) + 's, transform 0.6s ease ' + (idx * 0.1) + 's';
+    observer.observe(item);
+  });
+
+  // Animate infographic progress bars on scroll
+  const stepObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+      }
+    });
+  }, {threshold: 0.3});
+  document.querySelectorAll('.infographic-step').forEach((step, idx) => {
+    step.style.transitionDelay = (idx * 0.2) + 's';
+    stepObserver.observe(step);
+  });
+});
+</script>
+
+
+
+</body>
+</html>
