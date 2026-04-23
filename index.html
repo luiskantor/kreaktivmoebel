@@ -1322,14 +1322,31 @@
     function handleSubmit(e){
       e.preventDefault();
       var form = document.getElementById('contact-form');
-      var box = form.closest('.cta-box');
-      box.innerHTML = '<div style="text-align:center;padding:48px 24px">'
-        + '<div style="width:48px;height:48px;border-radius:50%;background:rgba(34,139,34,.1);display:inline-flex;align-items:center;justify-content:center;margin-bottom:16px">'
-        + '<svg width="24" height="24" fill="none" stroke="#228B22" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg>'
-        + '</div>'
-        + '<h4 style="margin:0 0 8px;font-size:20px">Vielen Dank!</h4>'
-        + '<p style="color:var(--muted);font-size:14px;margin:0">Wir melden uns in Kürze bei dir.</p>'
-        + '</div>';
+      var btn = form.querySelector('button[type="submit"]');
+      btn.disabled = true;
+      btn.textContent = 'Wird gesendet …';
+
+      var data = {
+        name: form.name.value,
+        email: form.email.value,
+        phone: form.phone.value,
+        type: form.type.value || ''
+      };
+
+      fetch('https://api.lead-table.com/api/webhook/generic/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0YWJsZUlEIjoiNjllYTNmZjdjMTgwNzVlODU5NjY2ZjQ4IiwiY3VzdG9tZXJJRCI6IjY5ZWEzZmYwYzE4MDc1ZTg1OTY2NmUyNCIsImFnZW5jeUlEIjoiNjVhNmFkYmIzOGY4ZDlkNTYyZWJkMDhlIiwiaWF0IjoxNzc2OTU5NDc5fQ.5KQJdqTiH0lg4x8b6xX_QL6HV3X4TMzKsAeA-VlpSVw', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(data)
+      })
+      .then(function(res){
+        if(!res.ok) throw new Error('Fehler');
+        window.location.href = 'danke.html';
+      })
+      .catch(function(){
+        btn.disabled = false;
+        btn.innerHTML = 'Anfrage absenden <svg style="width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
+        alert('Es gab einen Fehler. Bitte versuche es erneut.');
+      });
     }
     // Simple helpers
     const $ = (sel, root=document) => root.querySelector(sel);
