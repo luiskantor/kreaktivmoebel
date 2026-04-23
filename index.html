@@ -247,6 +247,37 @@
       background:#000;
       border-radius:var(--radius2);
       overflow:hidden;
+      position:relative;
+    }
+    .video-sound-toggle{
+      position:absolute;
+      right:14px;
+      bottom:14px;
+      width:40px; height:40px;
+      border-radius:50%;
+      border:1px solid rgba(255,255,255,.25);
+      background:rgba(15,23,42,.55);
+      color:#fff;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      cursor:pointer;
+      backdrop-filter:blur(6px);
+      -webkit-backdrop-filter:blur(6px);
+      transition:background .2s ease, transform .2s ease, border-color .2s ease;
+      z-index:2;
+    }
+    .video-sound-toggle:hover{
+      background:rgba(15,23,42,.8);
+      border-color:rgba(255,255,255,.5);
+      transform:scale(1.05);
+    }
+    .video-sound-toggle:active{transform:scale(0.96)}
+    .video-sound-toggle .icon-unmuted{display:none}
+    .video-sound-toggle.is-unmuted .icon-muted{display:none}
+    .video-sound-toggle.is-unmuted .icon-unmuted{display:block}
+    @media (min-width:920px){
+      .video-sound-toggle{right:18px; bottom:18px; width:44px; height:44px}
     }
     .hero-video{
       display:block;
@@ -969,9 +1000,21 @@
       <!-- Boxed hero video. Replace hero-video.mp4 with your final video file. -->
       <div class="container">
         <div class="hero-video-wrap">
-          <video class="hero-video" autoplay muted loop playsinline poster="Foto2.jpeg">
+          <video class="hero-video" id="hero-video" autoplay muted loop playsinline poster="hero-thumbnail.jpg">
             <source src="hero-video.mp4" type="video/mp4">
           </video>
+          <button class="video-sound-toggle" id="video-sound-toggle" type="button" aria-label="Ton einschalten">
+            <svg class="icon-muted" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+              <line x1="23" y1="9" x2="17" y2="15"></line>
+              <line x1="17" y1="9" x2="23" y2="15"></line>
+            </svg>
+            <svg class="icon-unmuted" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+              <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+              <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+            </svg>
+          </button>
         </div>
       </div>
 
@@ -1328,6 +1371,25 @@
 
 
   <script>
+    (function(){
+      var video = document.getElementById('hero-video');
+      var toggle = document.getElementById('video-sound-toggle');
+      if(!video || !toggle) return;
+      toggle.addEventListener('click', function(){
+        if(video.muted){
+          video.muted = false;
+          video.volume = 1;
+          video.play().catch(function(){});
+          toggle.classList.add('is-unmuted');
+          toggle.setAttribute('aria-label', 'Ton ausschalten');
+        } else {
+          video.muted = true;
+          toggle.classList.remove('is-unmuted');
+          toggle.setAttribute('aria-label', 'Ton einschalten');
+        }
+      });
+    })();
+
     function handleSubmit(e){
       e.preventDefault();
       var form = document.getElementById('contact-form');
